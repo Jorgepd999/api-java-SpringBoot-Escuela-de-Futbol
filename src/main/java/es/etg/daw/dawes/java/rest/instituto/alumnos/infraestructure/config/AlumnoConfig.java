@@ -5,9 +5,11 @@ import org.springframework.context.annotation.Configuration;
 
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.CreateAlumnoUseCase;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.DeleteAlumnoUseCase;
+import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.EditAlumnoUseCase;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.FindAlumnoUseCase;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.service.CreateAlumnoUseService;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.service.DeleteAlumnoUseService;
+import es.etg.daw.dawes.java.rest.instituto.alumnos.application.service.EditAlumnoUseService;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.service.FindAlumnoUseService;
 import lombok.RequiredArgsConstructor;
 
@@ -45,5 +47,16 @@ public class AlumnoConfig {
     public DeleteAlumnoUseService deleteAlumnoUseService(){
         return new DeleteAlumnoUseService(deleteAlumnoUseCase());
     }
+    //Metodo PUT
+    @Bean
+    public EditAlumnoUseCase editAlumnoUseCase(){
+        return new EditAlumnoUseCase();
+    }
+
+    @Bean 
+    public EditAlumnoUseService editAlumnoUseService(){
+        return new EditAlumnoUseService(editAlumnoUseCase());
+    }
+
 }
 
