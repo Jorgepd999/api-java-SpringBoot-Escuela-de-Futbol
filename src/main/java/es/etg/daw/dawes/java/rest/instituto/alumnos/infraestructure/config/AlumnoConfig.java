@@ -7,6 +7,7 @@ import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.CreateAl
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.DeleteAlumnoUseCase;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.EditAlumnoUseCase;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase.FindAlumnoUseCase;
+import es.etg.daw.dawes.java.rest.instituto.alumnos.domain.model.repository.AlumnoRepository;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.service.CreateAlumnoUseService;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.service.DeleteAlumnoUseService;
 import es.etg.daw.dawes.java.rest.instituto.alumnos.application.service.EditAlumnoUseService;
@@ -16,10 +17,12 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @RequiredArgsConstructor
 public class AlumnoConfig {
+
+    private final AlumnoRepository alumnoRepository;
     //Metodo POST
     @Bean
     public CreateAlumnoUseCase createAlumnoUseCase(){
-        return new CreateAlumnoUseCase();
+        return new CreateAlumnoUseCase(alumnoRepository);
     }
   //Metodo POST
     @Bean
@@ -29,7 +32,7 @@ public class AlumnoConfig {
     //Metodo GET
      @Bean
     public FindAlumnoUseCase findAlumnoUseCase(){
-        return new FindAlumnoUseCase();
+        return new FindAlumnoUseCase(alumnoRepository);
     }
     //Metodo GET
     @Bean
@@ -40,7 +43,7 @@ public class AlumnoConfig {
     @Bean
     //Metodo DELETE
     public DeleteAlumnoUseCase deleteAlumnoUseCase(){
-        return new DeleteAlumnoUseCase();
+        return new DeleteAlumnoUseCase(alumnoRepository);
     }
     //Metodo DELETE
     @Bean
@@ -50,7 +53,7 @@ public class AlumnoConfig {
     //Metodo PUT
     @Bean
     public EditAlumnoUseCase editAlumnoUseCase(){
-        return new EditAlumnoUseCase();
+        return new EditAlumnoUseCase(alumnoRepository);
     }
 
     @Bean 
