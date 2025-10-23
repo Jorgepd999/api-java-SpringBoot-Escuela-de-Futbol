@@ -12,6 +12,6 @@ public class DeleteAlumnoUseService {
     private final DeleteAlumnoUseCase deleteAlumnoUseCase;
 
     public void delete(int id){
-
+        deleteAlumnoUseCase.delete(id);
     }
 }

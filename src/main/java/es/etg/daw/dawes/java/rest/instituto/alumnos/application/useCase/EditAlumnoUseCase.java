@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.instituto.alumnos.application.service;
+package es.etg.daw.dawes.java.rest.instituto.alumnos.application.useCase;
 
 import org.springframework.stereotype.Service;
 
