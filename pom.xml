@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>es.etg.daw.dawes.java.rest</groupId>
-	<artifactId>instituto</artifactId>
+	<artifactId>academia</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>instituto</name>
+	<name>academia</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
