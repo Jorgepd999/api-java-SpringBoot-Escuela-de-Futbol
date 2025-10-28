@@ -34,7 +34,6 @@ Toda la documentación detallada está en la carpeta [`doc/`](./doc/README.md) d
 - [Requisitos F y NF](./doc/requisitos/requisitos.md)
 - [Endpoints Alumnos](./doc/endpoints/alumnos.md)
 - [Endpoints Categorías](./doc/endpoints/categorias.md)
-
 ---
 
 ## Cómo ejecutar
