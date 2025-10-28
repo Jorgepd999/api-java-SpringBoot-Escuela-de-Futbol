@@ -4,6 +4,3 @@
 
 - [Alumnos - Endpoints](./doc/alumnos_endpoints.md)
 
-## Modelos
-
-- [Diagrama UML](./doc/UML.puml)
