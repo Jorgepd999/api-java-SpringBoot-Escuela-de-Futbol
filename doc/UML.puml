@@ -1,0 +1,26 @@
+@startuml uml
+' Definición de la clase Alumno
+class Alumno {
+    +dni : String <<PK>>
+    +nombre : String
+    +apellido : String
+    +edad : int
+    +email : String
+    +activo : boolean
+    +telefono : String
+    +fechaNacimiento : Date
+}
+
+' Definición de la clase Categoria
+class Categoria {
+    +id : int <<PK>>
+    +nombre : String
+    +edadMin : int
+    +edadMax : int
+    +maxAlumnos : int
+}
+
+' Relación 1:N
+Categoria "1" -- "0..*" Alumno : tiene >
+
+@enduml
