@@ -27,7 +27,7 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 Toda la documentación detallada está en la carpeta [`doc/`](./doc/README.md) del proyecto:
 
 - [UML](./doc/UML/UML.png)
-- [Contexto de la aplicación](./doc/contexto/contexto.md)
+      - [Contexto de la aplicación](./doc/contexto/contexto.md)
 - [Comparativa con otras apps](./doc/comparativa/apps_existentes.md)
 - [Casos de Uso jugadores](./doc/casos_uso/casos_uso_jugadores.md)
 - [Casos de Uso categorias](./doc/casos_uso/casos_uso_categorias.md)
