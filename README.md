@@ -9,7 +9,7 @@ Jorge Perez
 
 ## Resumen del proyecto
 API para gestionar alumnos y categorías en una escuela de fútbol, con:
-- Gestión de entidades `Alumno` y `Categoria` (relación 1:N)
+- Gestión de entidades `Jugador` y `Categoria` (relación 1:N)
 - Persistencia en base de datos con Spring Data JPA
 - Validaciones estándar y personalizadas
 - Autenticación y autorización con Spring Security
