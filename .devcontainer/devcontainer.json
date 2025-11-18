@@ -1,13 +1,13 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/debian
 {
-	"name": "Debian",
+	"name": "alpine",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
-	"features": {
-		"ghcr.io/devcontainers/features/java:1": {},
-		"ghcr.io/devcontainers-extra/features/maven-sdkman:2": {}
-	},
+	"image": "julparper/alpine_node_mvn_git_jdk:v1",
+	//"features": {
+		//"ghcr.io/devcontainers/features/java:1": {},
+		//"ghcr.io/devcontainers-extra/features/maven-sdkman:2": {}
+	//},
 
 	//Montamos las claves ssh para que estén disponibles en el contenedor
 	//"mounts": [
@@ -40,7 +40,8 @@
 			"LalithK90.thymeleaf-html5-snippets",
 			"vscjava.vscode-lombok",
 			"juhahinkula.thymeleaf",
-			"vmware.vscode-spring-boot"
+			"vmware.vscode-spring-boot",
+			"plantuml.plantuml"
 		]
 		}
 	}
