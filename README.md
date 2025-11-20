@@ -46,7 +46,6 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
     - [Endpoints Alumnos](./doc/endpoints/alumnos.md)
     - [Endpoints Categorías](./doc/endpoints/categorias.md)
   - [Base de datos]()
-  - [Paquetes](./doc/diagramas/arquitectura.puml)
   - [Plan de pruebas]()
 - [Implementación]()
   - [Entorno de Desarrollo]() 
