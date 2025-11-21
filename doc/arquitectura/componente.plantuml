@@ -7,7 +7,7 @@ title Vertical Slicing - Productos / Categoría / Common
 ' ===========================
 package "Slice: Productos" {
 
-    package "Application" {
+    package "Application" { 
         [CreateProductoService]
         [EditProductoService]
     }
