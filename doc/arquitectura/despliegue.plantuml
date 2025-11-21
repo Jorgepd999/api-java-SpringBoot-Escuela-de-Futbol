@@ -1,0 +1,49 @@
+```plantuml
+@startuml
+node "Cliente (Postman / Frontend)" {
+  artifact "HTTP Requests (JSON)"
+}
+
+node "Servidor Spring Boot" {
+  component "API REST" {
+    [Controller Producto]
+    [Controller Categoria]
+  }
+
+  component "Aplicación" {
+    [CreateProductoService]
+    [EditProductoService]
+    [CreateProductoUseCase]
+    [EditProductoUseCase]
+  }
+
+  component "Infraestructura" {
+    [ProductoRepositoryImpl]
+    [CategoriaRepositoryImpl]
+    [ProductoMapper]
+    [CategoriaMapper]
+  }
+
+  component "Persistencia JPA" {
+    [ProductoJpaEntity]
+    [CategoriaJpaEntity]
+    [Spring Data JPA]
+  }
+}
+
+node "Servidor BD" {
+  database "Base de Datos\n(MySQL / Postgres)" {
+    frame "Tablas" {
+      [producto]
+      [categoria]
+    }
+  }
+}
+
+"Cliente (Postman / Frontend)" --> "API REST" : HTTP/JSON
+"API REST" --> "Aplicación"
+"Aplicación" --> "Infraestructura"
+"Infraestructura" --> "Persistencia JPA"
+"Persistencia JPA" --> "Base de Datos\n(MySQL / Postgres)" : JDBC
+
+@enduml
