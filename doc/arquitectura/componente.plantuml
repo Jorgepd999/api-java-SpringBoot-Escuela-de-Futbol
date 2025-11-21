@@ -1,0 +1,94 @@
+@startuml
+skinparam packageStyle rectangle
+title Vertical Slicing - Productos / Categoría / Common
+
+' ===========================
+' SLICE: PRODUCTOS
+' ===========================
+package "Slice: Productos" {
+
+    package "Application" {
+        [CreateProductoService]
+        [EditProductoService]
+    }
+
+    package "Domain" {
+        [Producto]
+        [ProductoId]
+        [ProductoRepository (Interface)]
+    }
+
+    package "Infrastructure" {
+        [ProductoRepositoryImpl]
+        [ProductoJpaEntity]
+        [ProductoMapper]
+    }
+}
+
+' Relaciones Productos
+[CreateProductoService] --> [ProductoRepository]
+[EditProductoService] --> [ProductoRepository]
+
+[ProductoRepositoryImpl] ..|> [ProductoRepository]
+[ProductoRepositoryImpl] --> [ProductoJpaEntity]
+[ProductoMapper] --> [ProductoJpaEntity]
+
+
+' ===========================
+' SLICE: CATEGORÍA
+' ===========================
+package "Slice: Categoría" {
+
+    package "Application" {
+        [CreateCategoriaService]
+        [EditCategoriaService]
+    }
+
+    package "Domain" {
+        [Categoria]
+        [CategoriaId]
+        [CategoriaRepository (Interface)]
+    }
+
+    package "Infrastructure" {
+        [CategoriaRepositoryImpl]
+        [CategoriaJpaEntity]
+        [CategoriaMapper]
+    }
+}
+
+' Relaciones Categoría
+[CreateCategoriaService] --> [CategoriaRepository]
+[EditCategoriaService] --> [CategoriaRepository]
+
+[CategoriaRepositoryImpl] ..|> [CategoriaRepository]
+[CategoriaRepositoryImpl] --> [CategoriaJpaEntity]
+[CategoriaMapper] --> [CategoriaJpaEntity]
+
+
+' ===========================
+' SLICE: COMMON
+' ===========================
+package "Slice: Common" {
+
+    package "Application" {
+        [NotificationService]
+    }
+
+    package "Domain" {
+        [BaseEntity]
+        [DomainEvent]
+    }
+
+    package "Infrastructure" {
+        [UnitOfWork]
+    }
+}
+
+' Relaciones Commons
+[Producto] --> [BaseEntity]
+[Categoria] --> [BaseEntity]
+[ProductoRepositoryImpl] --> [UnitOfWork]
+[CategoriaRepositoryImpl] --> [UnitOfWork]
+
+@enduml
