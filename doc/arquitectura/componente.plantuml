@@ -3,44 +3,44 @@ title Diagrama de Componentes
 
 package "Módulo Jugadores" as Jugador{
 
-    package "Aplicación" {
-        component "JugadorService" as JugadorService
-        component "JugadorUseCase" as JugadorUseCase
-        component "JugadorCommond" as JugadorCommond
+    package "aplicacion" {
+        package "service" as JugadorService
+        package "useCase" as JugadorUseCase
+        package "JugadorCommond" as JugadorCommond
     }
 
-    package "DominioJugador" {
-        component "Error" as JugadorError
-        component "Model" as JugadorModel
-        component "Repository" as JugadorRepository
+    package "dominio" {
+        package "error" as JugadorError
+        package "model" as JugadorModel
+        package "repository" as JugadorRepository
     }
 
     package "infraestructura" as ij{
-        component "Config" as JugadorConfig
-        component "db" as JugadorDb
-        component "Mapper" as JugadorMapper
-        component "Web" as JugadorWeb
+        package "config" as JugadorConfig
+        package "db" as JugadorDb
+        package "mapper" as JugadorMapper
+        package "web" as JugadorWeb
     }
 
 
-    JugadorUseCase --> JugadorRepository
+    JugadorUseCase ..> JugadorRepository
     JugadorRepository --> JugadorModel
     JugadorRepository --> JugadorError
 
     Jugador --> SpringData
-    Jugador --> Common
+    Jugador ..> Common
 }
 
 package "Módulo Common" as Common {
 
-    package "DominioCommon" {
-        component "Error" as CommonError
-        component "Model" as CommonModel
-        component "Repository" as CommonRepository
+    package "dominio" {
+        package "error" as CommonError
+        package "model" as CommonModel
+        package "repository" as CommonRepository
     }
 
     package "infraestructura" as iw{
-       component "Web" as CommonWeb
+       package "web" as CommonWeb
     }
 
     CommonWeb ..> CommonRepository
@@ -51,5 +51,4 @@ package "Módulo Common" as Common {
 package "Spring data" as SpringData{
     component "H2"
 }
-
 @enduml

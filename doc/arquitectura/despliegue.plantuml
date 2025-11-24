@@ -2,12 +2,12 @@
 title Diagrama de Despliegue
 
 node "Servidor Web\n(Java + SpringBoot)" {
-node "Aplicación" {
-component "Spring Boot App" as SpringBoot
-}
+    node "Aplicación" {
+        component "Academia de fútbol" <<spring boot>> as SpringBoot
+    }
 }
 
-database "H2 Database" as H2
+database "Database" as H2
 
 SpringBoot --> H2
 
