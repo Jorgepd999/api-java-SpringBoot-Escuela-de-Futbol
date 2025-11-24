@@ -9,18 +9,22 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.Jug
 public class JugadorMapper {
 
     public static CreateJugadorCommand tCommand(JugadorRequest jugadorRequest){
-        return new CreateJugadorCommand(jugadorRequest.nombre(), jugadorRequest.apellido());
+        return new CreateJugadorCommand(jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.telefono(),jugadorRequest.activo());
 
     }
 
     public static JugadorResponse toResponse(Jugador jugador){
         return new JugadorResponse(jugador.getId(),
                                   jugador.getNombre(),
-                                  jugador.getApellido());
+                                  jugador.getApellido(),
+                                  jugador.getEdad(),
+                                  jugador.getPiernaHabil(),
+                                  jugador.getTelefono(),
+                                  jugador.isActivo());
     }
 
     public static EditJugadorCommand toCommand(int id, JugadorRequest jugadorRequest){
-        return new EditJugadorCommand(id,jugadorRequest.nombre(), jugadorRequest.apellido());
+        return new EditJugadorCommand(id,jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.telefono(),jugadorRequest.activo());
     }
    
 }

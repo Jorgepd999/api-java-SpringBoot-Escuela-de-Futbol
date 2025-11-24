@@ -11,7 +11,8 @@ public class Jugador {
     private int id;
     private String nombre;
     private String apellido;
-    //private String dni;
-    //private String email;
-    //private boolean activo;
+    private int edad;
+    private String piernaHabil;
+    private int telefono;
+    private boolean activo;
 }

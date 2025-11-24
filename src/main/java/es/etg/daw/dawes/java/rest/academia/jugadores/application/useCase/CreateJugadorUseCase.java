@@ -11,7 +11,12 @@ public class CreateJugadorUseCase {
 public Jugador create(CreateJugadorCommand comando){
     Jugador jugador= Jugador.builder()
                          .nombre(comando.nombre())
-                         .apellido(comando.apellido()).build();
+                         .apellido(comando.apellido())
+                         .edad(comando.edad())
+                         .piernaHabil(comando.piernaHabil())
+                         .telefono(comando.telefono())
+                         .activo(comando.activo())
+                         .build();
     jugadorRepository.save(jugador);
     return jugador;
 }

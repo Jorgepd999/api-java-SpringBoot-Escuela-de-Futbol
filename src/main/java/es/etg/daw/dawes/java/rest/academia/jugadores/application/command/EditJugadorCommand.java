@@ -11,4 +11,8 @@ public class EditJugadorCommand {
     private int id;
     private String nombre;
     private String apellido;
+    private int edad;
+    private String piernaHabil;
+    private int telefono;
+    private boolean activo;
 }

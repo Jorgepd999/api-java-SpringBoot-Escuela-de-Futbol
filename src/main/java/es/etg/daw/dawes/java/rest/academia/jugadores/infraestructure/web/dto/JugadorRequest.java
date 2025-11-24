@@ -7,6 +7,10 @@ public record JugadorRequest(
  String nombre, 
 @NotBlank(message="{jugador.valid.apellido.no_vacio}")
 @NombradoJugador (message="{jugador.valid.nombre.nombrado_validation}")
-String apellido){
+String apellido,
+int edad,
+String piernaHabil,
+int telefono,
+boolean activo){
     
 }
