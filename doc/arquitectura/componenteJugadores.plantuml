@@ -1,7 +1,7 @@
 @startuml
 title Diagrama de Componentes
 
-package "Módulo Jugadores" as Jugador{
+package "Jugadores" as Jugador{
 
     package "aplicacion" as aj{
         package "service" as service

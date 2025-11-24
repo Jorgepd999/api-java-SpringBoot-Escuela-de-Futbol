@@ -1,5 +1,5 @@
 @startuml
-package "Módulo Common" as Common {
+package "Common" as Common {
 
     package "dominio" as dw {
         package "error" as error
@@ -13,7 +13,6 @@ package "Módulo Common" as Common {
 
     web ..> repository
     repository --> model
-    
+     
 }
 @enduml
-
