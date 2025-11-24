@@ -1,49 +1,14 @@
-```plantuml
 @startuml
-node "Cliente (Postman / Frontend)" {
-  artifact "HTTP Requests (JSON)"
+title Diagrama de Despliegue
+
+node "Servidor Web\n(Java + SpringBoot)" {
+node "Aplicación" {
+component "Spring Boot App" as SpringBoot
+}
 }
 
-node "Servidor Spring Boot" {
-  component "API REST" {
-    [Controller Producto]
-    [Controller Categoria]
-  }
+database "H2 Database" as H2
 
-  component "Aplicación" {
-    [CreateProductoService]
-    [EditProductoService]
-    [CreateProductoUseCase]
-    [EditProductoUseCase]
-  }
-
-  component "Infraestructura" {
-    [ProductoRepositoryImpl]
-    [CategoriaRepositoryImpl]
-    [ProductoMapper]
-    [CategoriaMapper]
-  }
-
-  component "Persistencia JPA" {
-    [ProductoJpaEntity]
-    [CategoriaJpaEntity]
-    [Spring Data JPA]
-  }
-}
-
-node "Servidor BD" {
-  database "Base de Datos\n(MySQL / Postgres)" {
-    frame "Tablas" {
-      [producto]
-      [categoria]
-    }
-  }
-}
-
-"Cliente (Postman / Frontend)" --> "API REST" : HTTP/JSON
-"API REST" --> "Aplicación"
-"Aplicación" --> "Infraestructura"
-"Infraestructura" --> "Persistencia JPA"
-"Persistencia JPA" --> "Base de Datos\n(MySQL / Postgres)" : JDBC
+SpringBoot --> H2
 
 @enduml

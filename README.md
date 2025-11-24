@@ -30,8 +30,8 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
     - [Casos de Uso jugadores](./doc/casos_uso/casos_uso_jugadores.md)
     - [Casos de Uso categorias](./doc/casos_uso/casos_uso_categorias.md)
     - [Requisitos F y NF](./doc/requisitos)
-      - [Funcional](./doc/requisitos/requisitosFuncionales.md))
-      - [No funcional](./doc/requisitos/requisitosNoFuncionales.md))
+      - [Funcional](./doc/requisitos/requisitosFuncionales.md)
+      - [No funcional](./doc/requisitos/requisitosNoFuncionales.md)
 - [Diseño]()
   - [GUI]()
     - [UI (vistas)]()
@@ -40,8 +40,8 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
     - [Diagrama navegación]()
     - [Reutilización]()
   - [Arquitectura]()
-    - [Despliegue](./doc/arquitectura/despliegue.plantuml))
-    - [Componentes](./doc/arquitectura/componente.plantuml))
+    - [Despliegue](./doc/arquitectura/despliegue.plantuml)
+    - [Componentes](./doc/arquitectura/componente.plantuml)
   - [Diseño de los servicios REST]()
     - [Endpoints Alumnos](./doc/endpoints/alumnos.md)
     - [Endpoints Categorías](./doc/endpoints/categorias.md)
@@ -63,3 +63,61 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 ---
 
 ## Cómo ejecutar
+
+
+
+```plantuml
+title Diagrama de Componentes
+
+package "Módulo Jugadores" as Jugador{
+
+    package "Aplicación" {
+        component "JugadorService" as JugadorService
+        component "JugadorUseCase" as JugadorUseCase
+        component "JugadorCommond" as JugadorCommond
+    }
+
+    package "DominioJugador" {
+        component "Error" as JugadorError
+        component "Model" as JugadorModel
+        component "Repository" as JugadorRepository
+    }
+
+    package "infraestructura" as ij{
+        component "Config" as JugadorConfig
+        component "db" as JugadorDb
+        component "Mapper" as JugadorMapper
+        component "Web" as JugadorWeb
+    }
+
+
+    JugadorUseCase --> JugadorRepository
+    JugadorRepository --> JugadorModel
+    JugadorRepository --> JugadorError
+
+    Jugador --> SpringData
+    Jugador --> Common
+}
+
+package "Módulo Common" as Common {
+
+    package "DominioCommon" {
+        component "Error" as CommonError
+        component "Model" as CommonModel
+        component "Repository" as CommonRepository
+    }
+
+    package "infraestructura" as iw{
+       component "Web" as CommonWeb
+    }
+
+    CommonWeb ..> CommonRepository
+    CommonRepository --> CommonModel
+    CommonRepository --> CommonError
+}
+
+package "Spring data" as SpringData{
+    component "H2"
+}
+
+```

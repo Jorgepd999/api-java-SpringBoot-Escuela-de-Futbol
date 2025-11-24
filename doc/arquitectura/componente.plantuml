@@ -1,94 +1,55 @@
 @startuml
-skinparam packageStyle rectangle
-title Vertical Slicing - Productos / Categoría / Common
+title Diagrama de Componentes
 
-' ===========================
-' SLICE: PRODUCTOS
-' ===========================
-package "Slice: Productos" {
+package "Módulo Jugadores" as Jugador{
 
-    package "Application" { 
-        [CreateProductoService]
-        [EditProductoService]
+    package "Aplicación" {
+        component "JugadorService" as JugadorService
+        component "JugadorUseCase" as JugadorUseCase
+        component "JugadorCommond" as JugadorCommond
     }
 
-    package "Domain" {
-        [Producto]
-        [ProductoId]
-        [ProductoRepository (Interface)]
+    package "DominioJugador" {
+        component "Error" as JugadorError
+        component "Model" as JugadorModel
+        component "Repository" as JugadorRepository
     }
 
-    package "Infrastructure" {
-        [ProductoRepositoryImpl]
-        [ProductoJpaEntity]
-        [ProductoMapper]
+    package "infraestructura" as ij{
+        component "Config" as JugadorConfig
+        component "db" as JugadorDb
+        component "Mapper" as JugadorMapper
+        component "Web" as JugadorWeb
     }
+
+
+    JugadorUseCase --> JugadorRepository
+    JugadorRepository --> JugadorModel
+    JugadorRepository --> JugadorError
+
+    Jugador --> SpringData
+    Jugador --> Common
 }
 
-' Relaciones Productos
-[CreateProductoService] --> [ProductoRepository]
-[EditProductoService] --> [ProductoRepository]
+package "Módulo Common" as Common {
 
-[ProductoRepositoryImpl] ..|> [ProductoRepository]
-[ProductoRepositoryImpl] --> [ProductoJpaEntity]
-[ProductoMapper] --> [ProductoJpaEntity]
-
-
-' ===========================
-' SLICE: CATEGORÍA
-' ===========================
-package "Slice: Categoría" {
-
-    package "Application" {
-        [CreateCategoriaService]
-        [EditCategoriaService]
+    package "DominioCommon" {
+        component "Error" as CommonError
+        component "Model" as CommonModel
+        component "Repository" as CommonRepository
     }
 
-    package "Domain" {
-        [Categoria]
-        [CategoriaId]
-        [CategoriaRepository (Interface)]
+    package "infraestructura" as iw{
+       component "Web" as CommonWeb
     }
 
-    package "Infrastructure" {
-        [CategoriaRepositoryImpl]
-        [CategoriaJpaEntity]
-        [CategoriaMapper]
-    }
+    CommonWeb ..> CommonRepository
+    CommonRepository --> CommonModel
+    CommonRepository --> CommonError
 }
 
-' Relaciones Categoría
-[CreateCategoriaService] --> [CategoriaRepository]
-[EditCategoriaService] --> [CategoriaRepository]
-
-[CategoriaRepositoryImpl] ..|> [CategoriaRepository]
-[CategoriaRepositoryImpl] --> [CategoriaJpaEntity]
-[CategoriaMapper] --> [CategoriaJpaEntity]
-
-
-' ===========================
-' SLICE: COMMON
-' ===========================
-package "Slice: Common" {
-
-    package "Application" {
-        [NotificationService]
-    }
-
-    package "Domain" {
-        [BaseEntity]
-        [DomainEvent]
-    }
-
-    package "Infrastructure" {
-        [UnitOfWork]
-    }
+package "Spring data" as SpringData{
+    component "H2"
 }
-
-' Relaciones Commons
-[Producto] --> [BaseEntity]
-[Categoria] --> [BaseEntity]
-[ProductoRepositoryImpl] --> [UnitOfWork]
-[CategoriaRepositoryImpl] --> [UnitOfWork]
 
 @enduml
