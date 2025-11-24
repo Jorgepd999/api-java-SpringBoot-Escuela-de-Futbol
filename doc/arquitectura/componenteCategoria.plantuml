@@ -1,0 +1,17 @@
+package "Módulo Common" as Common {
+
+    package "dominio" as dw {
+        package "error" as error
+        package "model" as model
+        package "repository" as repository
+    }
+
+    package "infraestructura" as iw{
+       package "web" as web
+    }
+
+    web ..> repository
+    repository --> model
+    
+}
+

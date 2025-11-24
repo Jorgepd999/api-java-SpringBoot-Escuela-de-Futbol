@@ -16,7 +16,7 @@ Este escenario genera **ineficiencia y desorganización** dentro de la academia,
 
 ## Objetivo de la aplicación
 
-La aplicación tiene como objetivo principal **optimizar la gestión de alumnos y categorías** dentro de una academia de fútbol base, ofreciendo una herramienta simple, intuitiva y accesible.
+La aplicación tiene como objetivo principal **optimizar la gestión de jugadores y categorías** dentro de una academia de fútbol base, ofreciendo una herramienta simple, intuitiva y accesible.
 
 De manera específica, el sistema busca:
 

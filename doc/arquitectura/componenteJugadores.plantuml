@@ -1,0 +1,33 @@
+@startuml
+title Diagrama de Componentes
+
+package "Módulo Jugadores" as Jugador{
+
+    package "aplicacion" as aj{
+        package "service" as service
+        package "useCase" as useCase
+        package "jugador" as jugador
+    }
+
+    package "dominio" as dj{
+        package "error" as error
+        package "model" as model
+        package "repository" as repository
+    }
+
+    package "infraestructura" as ij{
+        package "config" as config
+        package "db" as db
+        package "mapper" as mapper
+        package "web" as web
+    }
+
+
+    useCase ..> repository
+    repository --> model
+    repository --> error
+
+}
+
+
+@enduml

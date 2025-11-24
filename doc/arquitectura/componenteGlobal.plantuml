@@ -1,0 +1,20 @@
+@startuml
+title Arquitectura Global - Sistema Escuela de Fútbol
+
+package "Jugadores" as Jugadores {
+}
+
+package "Common" as Common {
+}
+
+package "Infraestructura de Datos" as Datos {
+    component "Spring Data" as SpringData
+    component "H2"
+}
+
+Jugadores ..> Common 
+Jugadores --> SpringData 
+
+SpringData --> H2 : Persistencia
+
+@enduml
