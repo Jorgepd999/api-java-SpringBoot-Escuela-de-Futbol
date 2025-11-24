@@ -65,6 +65,9 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 ## Cómo ejecutar
 
 
+![alternative text](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/Jorgepd999/api-java-SpringBoot-Escuela-de-Futbol/refs/heads/feature/jorge/doc/arquitectura/componente.plantuml)
+
+
 
 ```plantuml
 title Diagrama de Componentes
