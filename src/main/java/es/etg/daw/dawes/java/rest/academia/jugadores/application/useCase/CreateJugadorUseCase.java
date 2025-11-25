@@ -14,8 +14,7 @@ public Jugador create(CreateJugadorCommand comando){
                          .apellido(comando.apellido())
                          .edad(comando.edad())
                          .piernaHabil(comando.piernaHabil())
-                         .telefono(comando.telefono())
-                         .activo(comando.activo())
+                         .email(comando.email())
                          .build();
     jugadorRepository.save(jugador);
     return jugador;

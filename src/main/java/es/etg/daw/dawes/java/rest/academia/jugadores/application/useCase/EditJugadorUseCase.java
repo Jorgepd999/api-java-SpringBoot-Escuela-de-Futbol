@@ -21,8 +21,7 @@ public class EditJugadorUseCase {
                 jugador.setApellido(comando.apellido());
                 jugador.setEdad(comando.edad());
                 jugador.setPiernaHabil(comando.piernaHabil());
-                jugador.setTelefono((comando.telefono()));
-                jugador.setPiernaHabil(comando.piernaHabil());
+                jugador.setEmail((comando.email()));
                 return jugadorRepository.save(jugador);  // Guardar cambios
             })
             .orElseThrow(() -> new JugadorNotFoundException(comando.id()));  // Si no existe, lanzar excepción

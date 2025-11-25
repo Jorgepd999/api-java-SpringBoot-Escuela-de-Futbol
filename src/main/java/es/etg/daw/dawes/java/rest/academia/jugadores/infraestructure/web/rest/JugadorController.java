@@ -43,7 +43,7 @@ public class JugadorController {
 
     @PostMapping 
     public ResponseEntity<JugadorResponse> createJugador(@Valid @RequestBody JugadorRequest juagadorRequest){
-        CreateJugadorCommand comando =JugadorMapper.tCommand(juagadorRequest);
+        CreateJugadorCommand comando =JugadorMapper.toCommand(juagadorRequest);
         Jugador jugador= createJugadorUseService.createJugador(comando);
         return ResponseEntity.status(HttpStatus.CREATED).body(JugadorMapper.toResponse(jugador));
     }
@@ -79,5 +79,6 @@ public class JugadorController {
         });
         return errors;
     }
+
 }
 

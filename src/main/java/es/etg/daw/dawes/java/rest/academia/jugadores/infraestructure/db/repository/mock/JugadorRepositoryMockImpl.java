@@ -23,15 +23,7 @@ public class JugadorRepositoryMockImpl implements JugadorRepository {
     public List<Jugador> getAll() {
         return new ArrayList<>(jugadores.values());
     }
-    @Override
-    public List<Jugador> findByActivoTrue(){
-        return new ArrayList<>(jugadores.values());
-    }
-    @Override
-    public List<Jugador> findByActivoFalse(){
-        return new ArrayList<>(jugadores.values());
-    }
-
+   
     @Override
     public Optional<Jugador> getById(Integer id) {
         //Un optional puede tener una valor o no. Si no existe el producto devuelve Optional.empty

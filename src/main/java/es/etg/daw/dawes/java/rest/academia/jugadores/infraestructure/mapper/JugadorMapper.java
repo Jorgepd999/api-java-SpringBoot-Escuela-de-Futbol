@@ -8,8 +8,8 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.Jug
 
 public class JugadorMapper {
 
-    public static CreateJugadorCommand tCommand(JugadorRequest jugadorRequest){
-        return new CreateJugadorCommand(jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.telefono(),jugadorRequest.activo());
+    public static CreateJugadorCommand toCommand(JugadorRequest jugadorRequest){
+        return new CreateJugadorCommand(jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.email());
 
     }
 
@@ -19,12 +19,11 @@ public class JugadorMapper {
                                   jugador.getApellido(),
                                   jugador.getEdad(),
                                   jugador.getPiernaHabil(),
-                                  jugador.getTelefono(),
-                                  jugador.isActivo());
+                                  jugador.getEmail());
     }
 
     public static EditJugadorCommand toCommand(int id, JugadorRequest jugadorRequest){
-        return new EditJugadorCommand(id,jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.telefono(),jugadorRequest.activo());
+        return new EditJugadorCommand(id,jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.email());
     }
    
 }

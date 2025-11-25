@@ -13,6 +13,5 @@ public class Jugador {
     private String apellido;
     private int edad;
     private String piernaHabil;
-    private int telefono;
-    private boolean activo;
+    private String email;
 }

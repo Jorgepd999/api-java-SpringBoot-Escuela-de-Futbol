@@ -13,6 +13,6 @@ public class EditJugadorCommand {
     private final String apellido;
     private final int edad;
     private final String piernaHabil;
-    private final int telefono;
-    private final boolean activo;
+    private final String email;
+    
 }

@@ -9,11 +9,10 @@ import lombok.experimental.Accessors;
 @Accessors(fluent=true)
 public class CreateJugadorCommand {
 
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String piernaHabil;
-    private int telefono;
-    private boolean activo;
+    private final String nombre;
+    private final String apellido;
+    private final int edad;
+    private final String piernaHabil;
+    private final String email;
     
 }
