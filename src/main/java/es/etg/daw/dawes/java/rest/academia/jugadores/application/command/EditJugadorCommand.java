@@ -8,11 +8,11 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(fluent = true)
 public class EditJugadorCommand {
-    private int id;
-    private String nombre;
-    private String apellido;
-    private int edad;
-    private String piernaHabil;
-    private int telefono;
-    private boolean activo;
+    private final int id;
+    private final String nombre;
+    private final String apellido;
+    private final int edad;
+    private final String piernaHabil;
+    private final int telefono;
+    private final boolean activo;
 }

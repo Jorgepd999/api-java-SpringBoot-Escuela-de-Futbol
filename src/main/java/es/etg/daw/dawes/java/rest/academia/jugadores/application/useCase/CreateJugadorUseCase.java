@@ -2,7 +2,7 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.CreateJugadorCommand;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.repository.JugadorRepository;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class CreateJugadorUseCase {

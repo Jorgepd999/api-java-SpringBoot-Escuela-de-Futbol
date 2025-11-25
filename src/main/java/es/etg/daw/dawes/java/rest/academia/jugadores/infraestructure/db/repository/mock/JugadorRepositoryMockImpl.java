@@ -8,7 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.repository.JugadorRepository;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 
 @Repository
 public class JugadorRepositoryMockImpl implements JugadorRepository {
@@ -21,6 +21,14 @@ public class JugadorRepositoryMockImpl implements JugadorRepository {
     }
      @Override
     public List<Jugador> getAll() {
+        return new ArrayList<>(jugadores.values());
+    }
+    @Override
+    public List<Jugador> findByActivoTrue(){
+        return new ArrayList<>(jugadores.values());
+    }
+    @Override
+    public List<Jugador> findByActivoFalse(){
         return new ArrayList<>(jugadores.values());
     }
 

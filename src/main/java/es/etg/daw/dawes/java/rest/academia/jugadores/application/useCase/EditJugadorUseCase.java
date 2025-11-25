@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.EditJugadorCommand;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.error.JugadorNotFoundException;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.repository.JugadorRepository;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

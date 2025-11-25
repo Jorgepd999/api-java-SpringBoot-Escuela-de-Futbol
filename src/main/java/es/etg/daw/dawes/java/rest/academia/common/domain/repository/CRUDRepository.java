@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.repository;
+package es.etg.daw.dawes.java.rest.academia.common.domain.repository;
 
 import java.util.List;
 import java.util.Optional;

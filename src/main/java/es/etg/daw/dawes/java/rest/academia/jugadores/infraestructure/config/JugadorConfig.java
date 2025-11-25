@@ -11,7 +11,7 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.CreateJ
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.DeleteJugadorUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.EditJugadorUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.FindJugadorUseCase;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.repository.JugadorRepository;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
