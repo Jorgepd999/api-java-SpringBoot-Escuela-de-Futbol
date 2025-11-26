@@ -8,7 +8,7 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class Jugador {
-    private int id;
+    private JugadorId id;
     private String nombre;
     private String apellido;
     private int edad;

@@ -14,7 +14,7 @@ public class JugadorMapper {
     }
 
     public static JugadorResponse toResponse(Jugador jugador){
-        return new JugadorResponse(jugador.getId(),
+        return new JugadorResponse(jugador.getId().getValue(),
                                   jugador.getNombre(),
                                   jugador.getApellido(),
                                   jugador.getEdad(),
