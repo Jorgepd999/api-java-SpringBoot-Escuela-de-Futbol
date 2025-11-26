@@ -71,8 +71,7 @@ public class JugadorController {
     }
 
     @GetMapping
-    public List<JugadorResponse> allAlumnos() {
-
+    public List<JugadorResponse> allJugadores() {
         checkApiVersion(); // Validación interna
 
         return findJugadorUseService.findAll()
