@@ -47,7 +47,7 @@ public class JugadorController {
     // Recuperamos la versión desde el properties
     @Value("${api.version}")
     private String apiVersion;
-    // MÉTODO DE VALIDACIÓN
+    // MÉTODO DE VALIDACIÓN, comprueba la version de la API, si es distinta da error.
     private void checkApiVersion() {
         if (!"1.0".equals(apiVersion)) {
             throw new ResponseStatusException(

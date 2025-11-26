@@ -8,11 +8,12 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 
 @Repository
 public class JugadorRepositoryMockImpl implements JugadorRepository {
-    private final Map<Integer,Jugador> jugadores= JugadorFactory.getDemoData();
+    private final Map<JugadorId,Jugador> jugadores= JugadorFactory.getDemoData();
 
     @Override
     public Jugador save(Jugador t){
@@ -25,13 +26,13 @@ public class JugadorRepositoryMockImpl implements JugadorRepository {
     }
    
     @Override
-    public Optional<Jugador> getById(Integer id) {
+    public Optional<Jugador> getById(JugadorId id) {
         //Un optional puede tener una valor o no. Si no existe el producto devuelve Optional.empty
         return Optional.ofNullable(jugadores.get(id));
     }
 
     @Override
-    public void deteteById(Integer id) {
+    public void deleteById(JugadorId id) {
         jugadores.remove(id);
     }
     @Override

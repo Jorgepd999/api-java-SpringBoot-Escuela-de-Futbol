@@ -2,8 +2,7 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
+
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.error.JugadorNotFoundException;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;

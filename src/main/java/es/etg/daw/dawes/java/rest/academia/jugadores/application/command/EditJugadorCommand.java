@@ -1,5 +1,6 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.application.command;
 
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.Accessors;
@@ -8,7 +9,7 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @Accessors(fluent = true)
 public class EditJugadorCommand {
-    private final int id;
+    private final JugadorId id;
     private final String nombre;
     private final String apellido;
     private final int edad;

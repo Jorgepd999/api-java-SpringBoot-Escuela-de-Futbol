@@ -7,7 +7,7 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
 
 public class JugadorFactory {
-    public static final Map<Integer, Jugador> getDemoData() {
+    public static final Map<JugadorId, Jugador> getDemoData() {
         Map<JugadorId, Jugador> datos = new LinkedHashMap<>();
         datos.put(new JugadorId(1), new Jugador(new JugadorId(1), "Marce", "Perez",30,"Derecha","pruebaemail@gmail.com"));
         datos.put(new JugadorId(2), new Jugador(new JugadorId(2), "Raquel", "Prieto",29,"Derecha","pruebaemail@gmail.com"));
