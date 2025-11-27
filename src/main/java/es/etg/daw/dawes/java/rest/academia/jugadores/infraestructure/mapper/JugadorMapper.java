@@ -23,7 +23,7 @@ public class JugadorMapper {
     }
 
     public static EditJugadorCommand toCommand(int id, JugadorRequest jugadorRequest){
-        return new EditJugadorCommand(id,jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.email());
+        return new EditJugadorCommand(new JugadorId(id),jugadorRequest.nombre(), jugadorRequest.apellido(),jugadorRequest.edad(),jugadorRequest.piernaHabil(),jugadorRequest.email());
     }
    
 }

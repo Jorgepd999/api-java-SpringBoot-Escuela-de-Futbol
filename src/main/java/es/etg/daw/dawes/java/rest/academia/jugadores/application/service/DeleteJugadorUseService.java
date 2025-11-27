@@ -11,7 +11,7 @@ public class DeleteJugadorUseService {
 
     private final DeleteJugadorUseCase deleteJugadorUseCase;
 
-    public void delete(int id){
+    public void delete(JugadorId id){
         deleteJugadorUseCase.delete(id);
     }
 }

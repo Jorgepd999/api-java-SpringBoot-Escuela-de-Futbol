@@ -72,7 +72,6 @@ public class JugadorController {
 
     @GetMapping
     public List<JugadorResponse> allJugadores() {
-         if(true) throw new NullPointerException();
         checkApiVersion(); // Validación interna
 
         return findJugadorUseService.findAll()
@@ -86,7 +85,7 @@ public class JugadorController {
 
         checkApiVersion(); // Validación interna
         
-        deleteJugadorUseService.delete(id);
+        deleteJugadorUseService.delete(new ProductoId(id));
         return ResponseEntity.noContent().build();
     }
 
