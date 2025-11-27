@@ -1,6 +1,7 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.repository.mock;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -15,11 +16,30 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRe
 public class JugadorRepositoryMockImpl implements JugadorRepository {
     private final Map<JugadorId,Jugador> jugadores= JugadorFactory.getDemoData();
 
-    @Override
-    public Jugador save(Jugador t){
-        jugadores.put(t.getId(),t); 
-        return t;
+     private int obtenerSiguienteId(){
+        JugadorId ultimo = new JugadorId(0);
+        if(!jugadores.isEmpty()){
+            Collection<Jugador> lista = jugadores.values();
+            
+            for (Jugador j : lista) {
+                ultimo = j.getId();
+            }
+
+        }
+        return ultimo.getValue()+1;
     }
+
+  @Override
+public Jugador save(Jugador j) {
+    // Si el ID de Jugador está vacío (null), se asigna un nuevo ID generado
+    if (j.getId() == null) {
+        j.setId(new JugadorId(obtenerSiguienteId())); // Aquí asumo que tienes un método similar para obtener el siguiente ID
+    }
+
+    jugadores.put(j.getId(), j); 
+    return j;
+}
+
      @Override
     public List<Jugador> getAll() {
         return new ArrayList<>(jugadores.values());

@@ -28,6 +28,7 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.DeleteJ
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.EditJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.FindJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.mapper.JugadorMapper;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorRequest;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorResponse;
@@ -85,7 +86,7 @@ public class JugadorController {
 
         checkApiVersion(); // Validación interna
         
-        deleteJugadorUseService.delete(new ProductoId(id));
+        deleteJugadorUseService.delete(new JugadorId(id));
         return ResponseEntity.noContent().build();
     }
 
