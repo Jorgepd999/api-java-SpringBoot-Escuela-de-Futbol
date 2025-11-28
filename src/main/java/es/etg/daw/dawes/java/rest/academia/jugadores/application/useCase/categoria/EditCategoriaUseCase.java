@@ -1,6 +1,9 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.categoria;
 
 
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.categoria.EditCategoriaCommand;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Categoria;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.CategoriaRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
