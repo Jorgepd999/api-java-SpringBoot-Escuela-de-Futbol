@@ -2,7 +2,8 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.catego
 
 import java.time.LocalDateTime;
 
-
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Categoria;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.CategoriaRepository;
 import lombok.RequiredArgsConstructor;
 
 
