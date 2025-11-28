@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model;
+package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria;
 
 import es.etg.daw.dawes.java.rest.academia.common.domain.model.Identificador;
 

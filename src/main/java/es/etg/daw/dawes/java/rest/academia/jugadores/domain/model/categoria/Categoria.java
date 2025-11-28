@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model;
+package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria;
 
 import java.time.LocalDateTime;
 
