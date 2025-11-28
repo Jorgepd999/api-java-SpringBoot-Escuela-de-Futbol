@@ -1,9 +1,9 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.mapper;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.CreateJugadorCommand;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.EditJugadorCommand;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.CreateJugadorCommand;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.EditJugadorCommand;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorRequest;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorResponse;
 

@@ -1,10 +1,10 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.application.service;
+package es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador;
 
 import org.springframework.stereotype.Service;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.CreateJugadorCommand;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.CreateJugadorUseCase;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.CreateJugadorCommand;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.CreateJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model;
+package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

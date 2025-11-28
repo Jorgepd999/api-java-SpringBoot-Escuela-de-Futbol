@@ -1,12 +1,12 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.application.service;
+package es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador;
 
 import java.util.List;
 
 
 import org.springframework.stereotype.Service;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.FindJugadorUseCase;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.FindJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

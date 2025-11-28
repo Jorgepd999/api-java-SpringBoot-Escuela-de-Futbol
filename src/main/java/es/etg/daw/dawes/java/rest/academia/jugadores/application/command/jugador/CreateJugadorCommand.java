@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.application.command;
+package es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

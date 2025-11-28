@@ -3,14 +3,14 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.CreateJugadorUseService;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.DeleteJugadorUseService;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.EditJugadorUseService;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.FindJugadorUseService;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.CreateJugadorUseCase;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.DeleteJugadorUseCase;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.EditJugadorUseCase;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.FindJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.CreateJugadorUseService;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.DeleteJugadorUseService;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.EditJugadorUseService;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.FindJugadorUseService;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.CreateJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.DeleteJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.EditJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.FindJugadorUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 import lombok.RequiredArgsConstructor;
 

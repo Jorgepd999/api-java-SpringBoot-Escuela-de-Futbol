@@ -2,7 +2,7 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.application.service;
 
 import org.springframework.stereotype.Service;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.DeleteJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.DeleteJugadorUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
 import lombok.RequiredArgsConstructor;
 

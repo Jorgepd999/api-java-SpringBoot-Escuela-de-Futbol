@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase;
+package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador;
 
 import org.springframework.stereotype.Service;
 
