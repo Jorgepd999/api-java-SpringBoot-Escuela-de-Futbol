@@ -1,6 +1,6 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.Accessors;

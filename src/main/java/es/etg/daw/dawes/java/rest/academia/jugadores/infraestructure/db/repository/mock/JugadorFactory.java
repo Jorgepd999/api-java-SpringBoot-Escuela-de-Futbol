@@ -3,8 +3,8 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.reposit
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 
 public class JugadorFactory {
     public static final Map<JugadorId, Jugador> getDemoData() {

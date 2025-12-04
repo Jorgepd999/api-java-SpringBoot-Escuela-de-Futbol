@@ -23,11 +23,12 @@ import org.springframework.web.server.ResponseStatusException;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.CreateJugadorCommand;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.EditJugadorCommand;
-import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.DeleteJugadorUseService;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.DeleteJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.CreateJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.EditJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.FindJugadorUseService;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.mapper.JugadorMapper;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorRequest;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorResponse;

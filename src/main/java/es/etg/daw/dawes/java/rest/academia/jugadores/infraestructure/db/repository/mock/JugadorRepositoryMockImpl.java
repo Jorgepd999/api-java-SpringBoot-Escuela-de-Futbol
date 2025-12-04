@@ -8,8 +8,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.Jugador;
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 
 @Repository

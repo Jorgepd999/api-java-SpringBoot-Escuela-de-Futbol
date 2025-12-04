@@ -2,8 +2,7 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugado
 
 import org.springframework.stereotype.Service;
 
-
-import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.JugadorId;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 import lombok.RequiredArgsConstructor;
 
