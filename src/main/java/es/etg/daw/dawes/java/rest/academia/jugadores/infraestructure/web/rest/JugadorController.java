@@ -1,11 +1,13 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.rest;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -44,11 +46,11 @@ public class JugadorController {
     private final FindJugadorUseService findJugadorUseService;
     private final DeleteJugadorUseService deleteJugadorUseService;
     private final EditJugadorUseService editJugadorUseService;
+    private final ObjectMapper objectMapper;
 
-    // Recuperamos la versión desde el properties
     @Value("${api.version}")
     private String apiVersion;
-    // MÉTODO DE VALIDACIÓN, comprueba la version de la API, si es distinta da error.
+
     private void checkApiVersion() {
         if (!"1.0".equals(apiVersion)) {
             throw new ResponseStatusException(
@@ -58,12 +60,15 @@ public class JugadorController {
         }
     }
 
-    @PostMapping 
+    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_PLAIN_VALUE})
     public ResponseEntity<JugadorResponse> createJugador(
-            @Valid @RequestBody JugadorRequest jugadorRequest) {
+            @RequestBody String body) throws Exception {
 
-        checkApiVersion(); // Validación interna
+        checkApiVersion();
 
+        // Parsear JSON desde string (soporta tanto JSON como text/plain con JSON dentro)
+        JugadorRequest jugadorRequest = objectMapper.readValue(body, JugadorRequest.class);
+        
         CreateJugadorCommand comando = JugadorMapper.toCommand(jugadorRequest);
         Jugador jugador = createJugadorUseService.createJugador(comando);
 
@@ -71,9 +76,10 @@ public class JugadorController {
                              .body(JugadorMapper.toResponse(jugador));
     }
 
+    // ...existing code...
     @GetMapping
     public List<JugadorResponse> allJugadores() {
-        checkApiVersion(); // Validación interna
+        checkApiVersion();
 
         return findJugadorUseService.findAll()
                 .stream()
@@ -84,7 +90,7 @@ public class JugadorController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteJugador(@PathVariable int id) {
 
-        checkApiVersion(); // Validación interna
+        checkApiVersion();
         
         deleteJugadorUseService.delete(new JugadorId(id));
         return ResponseEntity.noContent().build();
@@ -95,7 +101,7 @@ public class JugadorController {
             @PathVariable int id,
             @RequestBody JugadorRequest jugadorRequest) {
 
-        checkApiVersion(); // Validación interna
+        checkApiVersion();
         
         EditJugadorCommand comando = JugadorMapper.toCommand(id, jugadorRequest);
         Jugador jugador = editJugadorUseService.update(comando);
@@ -103,7 +109,6 @@ public class JugadorController {
         return JugadorMapper.toResponse(jugador);
     }
 
-    // Captura errores de validación
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
@@ -116,4 +121,3 @@ public class JugadorController {
         return errors;
     }
 }
-
