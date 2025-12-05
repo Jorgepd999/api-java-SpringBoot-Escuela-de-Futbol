@@ -13,7 +13,7 @@ public record JugadorRequest(
 @NombradoJugador (message="{jugador.valid.apellido.nombrado_validation}")
 String apellido,
 @Min(value = 5, message="{jugador.valid.edad.min}")
-@Max (value = 19, message="{jugador.valid.edad.max}")
+@Max (value = 40, message="{jugador.valid.edad.max}")
 int edad,
 String piernaHabil,
 @EmailJugador(message="{jugador.valid.email.formato}")
