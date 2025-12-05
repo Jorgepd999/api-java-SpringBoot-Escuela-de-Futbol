@@ -57,7 +57,6 @@ public Jugador save(Jugador j) {
     }
     @Override
     public Optional<Jugador> getByName(String name) {
-        // TODO Sin implementar
         throw new UnsupportedOperationException("Unimplemented method 'getByName'");
     }
 }
