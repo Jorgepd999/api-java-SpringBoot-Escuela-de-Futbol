@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.repository.mock;
+package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.repository.mock.jugador;
 
 import java.util.ArrayList;
 import java.util.Collection;

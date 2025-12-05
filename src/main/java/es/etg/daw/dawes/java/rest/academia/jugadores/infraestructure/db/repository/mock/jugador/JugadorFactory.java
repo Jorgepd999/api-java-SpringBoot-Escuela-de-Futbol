@@ -1,4 +1,4 @@
-package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.repository.mock;
+package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.repository.mock.jugador;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,6 +14,10 @@ public class JugadorFactory {
         datos.put(new JugadorId(3), new Jugador(new JugadorId(3), "Edo", "Perez",5,"izquierda","pruebaemail@gmail.com"));
         datos.put(new JugadorId(4), new Jugador(new JugadorId(4), "Mario", "Del Rincon",26,"derecha","pruebaemail@gmail.com"));
         return datos;
+    }
+
+    public static Jugador create() {
+        return new Jugador(new JugadorId(5), "Carlos", "Mendieta",23,"derecha","pruebaemail@gmail.com");
     }
 
 }
