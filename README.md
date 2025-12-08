@@ -45,7 +45,7 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
       - [Componente Jugadores](./doc/arquitectura/componenteJugadores.md)
       - [Componente Categorias](./doc/arquitectura/componenteCategoria.md)
   - [Diseño de los servicios REST]()
-    - [Endpoints Alumnos](./doc/endpoints/alumnos.md)
+    - [Endpoints Alumnos](./doc/endpoints/jugadores.md)
     - [Endpoints Categorías](./doc/endpoints/categorias.md)
   - [Base de datos]()
   - [Plan de pruebas]()
@@ -65,5 +65,6 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 ---
 
 ## Cómo ejecutar
+
 
 
