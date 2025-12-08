@@ -9,17 +9,6 @@
 
 Estas herramientas son muy completas, pero también muy complejas y caras, pensadas para clubes profesionales.
 
-**Sportlyzer**  
-Plataforma para la gestión de equipos, asistencia, plantillas y planificación. Orientada a clubes medianos y grandes.
-
-**SoccerLAB**  
-Herramienta profesional con análisis de rendimiento, estadísticas, control médico y seguimiento avanzado de jugadores.
-
-**360Player**  
-Aplicación que integra comunicación interna, planificación de entrenamientos, fichas de jugador y métricas de rendimiento.
-
-Estas soluciones son completas, pero resultan complejas y costosas para academias locales o centros de formación pequeños.
-
 ---
 
 # Comparativa y diferenciación
@@ -54,4 +43,5 @@ Estas soluciones son completas, pero resultan complejas y costosas para academia
 - Accesible desde cualquier dispositivo.
 - Expansible mediante nuevos módulos (asistencia, estadísticas, pagos, control médico, etc.).
 - Económica y sin dependencia de servicios externos.
+
 
