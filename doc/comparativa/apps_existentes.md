@@ -35,7 +35,7 @@ Estas herramientas son muy completas, pero también muy complejas y caras, pensa
 
 ---
 
-# Ventajas de la aplicación
+# Ventajas de nuestra aplicación
 
 - Adaptada a las necesidades reales de una academia local.
 - Menor complejidad y curva de aprendizaje.
@@ -43,5 +43,6 @@ Estas herramientas son muy completas, pero también muy complejas y caras, pensa
 - Accesible desde cualquier dispositivo.
 - Expansible mediante nuevos módulos (asistencia, estadísticas, pagos, control médico, etc.).
 - Económica y sin dependencia de servicios externos.
+
 
 
