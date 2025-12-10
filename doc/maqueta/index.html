@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootFlow</title>
+    <link rel="stylesheet" href="../estilos/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+
+<body class="green-bg">
+
+    <header class="header">
+        <div class="logo">FOOTFLOW</div>
+        <button class="btn-login" onclick="toggleLogin()">Iniciar sesión</button>
+    </header>
+
+    <section class="hero">
+        <h1 class="hero-title">GESTIÓN INTELIGENTE PARA TU CLUB</h1>
+        <p class="hero-subtitle">Organiza jugadores, categorías, entrenamientos y mucho más.</p>
+        <a href="dashboard.html" class="btn-primary">Entrar al panel</a>
+    </section>
+
+    <section class="features">
+        <h2>FUNCIONES PRINCIPALES</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-box">
+                <h3>Registro</h3>
+                <p>Alta de jugadores de forma sencilla e intuitiva.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Organización</h3>
+                <p>Categorías: alevín, infantil, cadete, juvenil, sénior...</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Edición</h3>
+                <p>Modificación rápida de datos y gestión de altas/bajas.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Búsquedas</h3>
+                <p>Filtros avanzados para localizar jugadores.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Panel</h3>
+                <p>Interfaz clara para administradores y entrenadores.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Acceso</h3>
+                <p>Disponible desde cualquier dispositivo.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- POPUP LOGIN -->
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="toggleLogin()">×</span>
+            <h2>Iniciar sesión</h2>
+
+            <form class="login-form">
+                <input type="text" placeholder="Usuario">
+                <input type="password" placeholder="Contraseña">
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleLogin() {
+            document.getElementById('loginPopup').classList.toggle('show');
+        }
+    </script>
+
+</body>
+</html>
