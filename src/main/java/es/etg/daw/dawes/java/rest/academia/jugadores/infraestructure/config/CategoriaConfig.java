@@ -13,19 +13,24 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.categor
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.categoria.EditCategoriaUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.categoria.FindCategoriaUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.CategoriaRepository;
-
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.jpa.repository.categoria.CategoriaEntityJpaRepository;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.jpa.repository.categoria.CategoriaJpaRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
 @RequiredArgsConstructor
 public class CategoriaConfig {
 
-    private final CategoriaRepository categoriaRepository;
 
+    private final CategoriaEntityJpaRepository categoriaRepository;
+
+     public CategoriaRepository categoriaRepository(){
+        return new CategoriaJpaRepositoryImpl(categoriaRepository);
+    }
     // Método POST
     @Bean
     public CreateCategoriaUseCase createCategoriaUseCase() {
-        return new CreateCategoriaUseCase(categoriaRepository);
+        return new CreateCategoriaUseCase(categoriaRepository());
     }
 
     @Bean
@@ -36,7 +41,7 @@ public class CategoriaConfig {
     // Método GET
     @Bean
     public FindCategoriaUseCase findCategoriaUseCase() {
-        return new FindCategoriaUseCase(categoriaRepository);
+        return new FindCategoriaUseCase(categoriaRepository());
     }
 
     @Bean
@@ -47,7 +52,7 @@ public class CategoriaConfig {
     // Método DELETE
     @Bean
     public DeleteCategoriaUseCase deleteCategoriaUseCase() {
-        return new DeleteCategoriaUseCase(categoriaRepository);
+        return new DeleteCategoriaUseCase(categoriaRepository());
     }
 
     @Bean
@@ -58,7 +63,7 @@ public class CategoriaConfig {
     // Método PUT
     @Bean
     public EditCategoriaUseCase editCategoriaUseCase() {
-        return new EditCategoriaUseCase(categoriaRepository);
+        return new EditCategoriaUseCase(categoriaRepository());
     }
 
     @Bean

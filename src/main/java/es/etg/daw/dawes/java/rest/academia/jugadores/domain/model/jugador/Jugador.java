@@ -1,5 +1,6 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador;
 
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.CategoriaId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,4 +15,7 @@ public class Jugador {
     private int edad;
     private String piernaHabil;
     private String email;
+
+    //Agregamos la categoría
+    private CategoriaId categoria;
 }

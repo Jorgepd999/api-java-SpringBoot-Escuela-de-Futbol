@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.CategoriaId;
@@ -13,6 +14,7 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Cate
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.CategoriaRepository;
 
+@Profile("test")
 @Repository
 public class CategoriaRepositoryMockImpl implements CategoriaRepository {
 
