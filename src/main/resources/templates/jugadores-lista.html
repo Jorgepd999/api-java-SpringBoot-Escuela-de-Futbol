@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{jugador.list.page.title}">Listado de Jugadores</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+      <div class="language-selector">
+        <a th:href="@{/web/jugadores(lang=es)}">🇪🇸</a> | 
+        <a th:href="@{/web/jugadores(lang=en)}">🇬🇧</a> | 
+        <a th:href="@{/web/jugadores(lang=ar)}">🇲🇦</a> | 
+        <a th:href="@{/web/jugadores(lang=de)}">🇩🇪</a>
+    </div>
+
+    <hr>
+    <h1 th:text="#{jugador.list.title}">LISTADO DE JUGADORES</h1>
+    
+    <div class="table-container">
+        <a th:href="@{/web/jugadores/nuevo}" th:text="#{generic.link.create}">Crear Nuevo</a>
+
+        <a th:href="@{/web/jugadores/pdf}">
+            <img th:src="@{/images/archivo-pdf.png}" 
+                 th:alt="#{generic.link.export.pdf}" 
+                 th:title="#{generic.link.export.pdf}" 
+                 width="50">
+        </a>
+        
+        <table id="tablaJugadores">
+            <thead>
+                <tr>
+                    <th th:text="#{jugador.table.header.id}">ID</th>
+                    <th th:text="#{jugador.table.header.name}">Nombre</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpoTabla">
+                <tr th:each="p : ${jugadores}">
+                    <td th:text="${p.id}">1</td>
+                    <td th:text="${p.nombre}">Producto Ejemplo</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
