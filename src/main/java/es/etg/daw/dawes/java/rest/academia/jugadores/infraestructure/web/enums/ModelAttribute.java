@@ -6,16 +6,17 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums;
  */
 public enum ModelAttribute {
     JUGADOR_LIST("jugadores"),
+    CATEGORIA_LIST("categorias"),
     SINGLE_JUGADOR("jugadores"),
     ERROR_MESSAGE("errorMsg"),
     SUCCESS_MESSAGE("successMsg");
 
     private final String name;
-
+    
     ModelAttribute(String name) {
         this.name = name;
     }
-
+    
     public String getName() {
         return this.name;
     }
