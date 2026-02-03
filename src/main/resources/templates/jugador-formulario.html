@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title th:text="#{player.form.page.title}">Crear Jugador</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
+
 <body>
 
     <h1 th:text="#{player.form.title}">CREAR JUGADOR</h1>
@@ -46,7 +48,15 @@
             </div>
             <br>
 
-            
+            <div>
+                <label th:text="#{player.form.label.categoria}">Categoría:</label>
+                <select name="categoria" required>
+                    <option value="">-- Selecciona una categoría --</option>
+                    <option th:each="categoria : ${categorias}" th:value="${categoria.id.value}"
+                        th:text="${categoria.nombre}">
+                    </option>
+                </select>
+            </div>
             <br>
 
             <button type="submit" th:text="#{generic.button.save}">
@@ -57,4 +67,5 @@
     </div>
 
 </body>
+
 </html>

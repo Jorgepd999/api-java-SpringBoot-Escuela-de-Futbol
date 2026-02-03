@@ -38,15 +38,18 @@ public class JugadorViewController {
 
         return ThymView.JUGADOR_LIST.getPath();
     }
+
     // Carga la vista del formulario http://localhost:8082/web/productos/nuevo
     @GetMapping(WebRoutes.JUGADOR_NUEVO)
     public String formulario(Model model) {
 
         model.addAttribute(ModelAttribute.SINGLE_JUGADOR.getName(), new Jugador());
+        model.addAttribute(
+                ModelAttribute.CATEGORIA_LIST.getName(),
+                findCategoriaUseService.findAll());
 
         return ThymView.JUGADOR_FORM.getPath(); // Devuelvo la vista que carga el formulario
     }
-
 
     @PostMapping(WebRoutes.JUGADOR_NUEVO)
     public String crearJugador(@RequestParam String nombre,
@@ -57,7 +60,8 @@ public class JugadorViewController {
             @RequestParam(defaultValue = "1") int categoria,
             Model model) {
 
-       createJugadorService.createJugador(new CreateJugadorCommand(nombre, apellido,edad,piernaHabil,email,new CategoriaId(categoria)));
+        createJugadorService.createJugador(
+                new CreateJugadorCommand(nombre, apellido, edad, piernaHabil, email, new CategoriaId(categoria)));
 
         return ThymView.JUGADOR_CREATED.getPath();
     }
