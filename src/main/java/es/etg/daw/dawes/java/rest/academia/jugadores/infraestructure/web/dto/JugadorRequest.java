@@ -1,4 +1,5 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.validation.EmailJugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.validation.NombradoJugador;
 import jakarta.validation.constraints.Max;
@@ -18,6 +19,15 @@ int edad,
 String piernaHabil,
 @EmailJugador(message="{jugador.valid.email.formato}")
 @Email(message="{jugador.valid.email.formato}")
-String email){
+String email, 
+@Min (value =1, message="{jugador.valid.categoria.min}")
+@Max (value =5, message= "{jugador.valid.categoria.max}")
+
+int categoriaId)
+
+{
+    public JugadorRequest(Jugador p){
+        this(p.getNombre(), p.getApellido(),p.getEdad(),p.getPiernaHabil(),p.getEmail(), p.getCategoria().getValue());
+    }
     
 }

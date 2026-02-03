@@ -15,9 +15,9 @@ public Jugador create(CreateJugadorCommand comando){
                          .edad(comando.edad())
                          .piernaHabil(comando.piernaHabil())
                          .email(comando.email())
+                         .categoria(comando.categoriaId())
                          .build();
-    jugadorRepository.save(jugador);
-    return jugador;
+    return  jugadorRepository.save(jugador);
 }
     
 }

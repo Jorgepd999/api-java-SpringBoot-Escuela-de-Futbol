@@ -65,18 +65,18 @@
         <!-- Tabla Jugadores -->
         <div class="table-container">
             <h2>Jugadores</h2>
-            <a th:href="@{/web/jugadores/nuevo}" th:text="#{generic.link.create}">Crear Nuevo</a>
-            <a th:href="@{/web/jugadores/pdf}">
-                <img th:src="@{/images/archivo-pdf.png}" th:alt="#{generic.link.export.pdf}"
-                    th:title="#{generic.link.export.pdf}" width="50">
+
+            <a th:href="@{/web/jugadores/nuevo}" th:text="#{generic.link.create}">
+                Crear Nuevo
             </a>
+
             <table>
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        <th>Categoria ID</th>
+                        <th>Categoría</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,35 +84,20 @@
                         <td th:text="${j.id}">1</td>
                         <td th:text="${j.nombre}">Nombre</td>
                         <td th:text="${j.apellido}">Apellido</td>
-                        <td th:text="${j.categoria}">1</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+                        <td>
+                            <span th:each="c : ${categorias}" th:if="${c.id == j.categoria}" th:text="${c.nombre}">
+                                Infantil
+                            </span>
+                        </td>
 
-        <!-- Tabla Categorías -->
-        <div class="table-container">
-            <h2>Categorías</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
                     </tr>
-                </thead>
-                <tbody>
-                <tbody>
-                    <tr th:each="c : ${categorias}">
-                        <td th:text="${c.id}">1</td>
-                        <td th:text="${c.nombre}">Categoria Ejemplo</td>
-                    </tr>
-                </tbody>
-
                 </tbody>
             </table>
         </div>
 
     </div>
+
+
 </body>
 
 </html>

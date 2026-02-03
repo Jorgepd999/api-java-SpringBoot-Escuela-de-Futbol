@@ -17,7 +17,7 @@ public class JugadorMapper {
 
     public static CreateJugadorCommand toCommand(JugadorRequest jugadorRequest) {
         return new CreateJugadorCommand(jugadorRequest.nombre(), jugadorRequest.apellido(), jugadorRequest.edad(),
-                jugadorRequest.piernaHabil(), jugadorRequest.email());
+                jugadorRequest.piernaHabil(), jugadorRequest.email(), new CategoriaId(jugadorRequest.categoriaId()));
 
     }
 
@@ -27,7 +27,8 @@ public class JugadorMapper {
                 jugador.getApellido(),
                 jugador.getEdad(),
                 jugador.getPiernaHabil(),
-                jugador.getEmail());
+                jugador.getEmail(),
+                jugador.getCategoria().getValue());
     }
 
     public static EditJugadorCommand toCommand(int id, JugadorRequest jugadorRequest) {
