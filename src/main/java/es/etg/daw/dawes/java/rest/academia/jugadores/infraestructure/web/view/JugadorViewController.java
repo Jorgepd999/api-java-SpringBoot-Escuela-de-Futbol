@@ -11,6 +11,7 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.categor
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.CreateJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.FindJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.CategoriaId;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums.ModelAttribute;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums.ThymView;
 import lombok.RequiredArgsConstructor;
@@ -37,9 +38,17 @@ public class JugadorViewController {
 
         return ThymView.JUGADOR_LIST.getPath();
     }
+    // Carga la vista del formulario http://localhost:8082/web/productos/nuevo
+    @GetMapping(WebRoutes.JUGADOR_NUEVO)
+    public String formulario(Model model) {
+
+        model.addAttribute(ModelAttribute.SINGLE_JUGADOR.getName(), new Jugador());
+
+        return ThymView.JUGADOR_FORM.getPath(); // Devuelvo la vista que carga el formulario
+    }
 
 
-    @PostMapping(WebRoutes.JUGADORES_NUEVO)
+    @PostMapping(WebRoutes.JUGADOR_NUEVO)
     public String crearJugador(@RequestParam String nombre,
             @RequestParam String apellido,
             @RequestParam int edad,

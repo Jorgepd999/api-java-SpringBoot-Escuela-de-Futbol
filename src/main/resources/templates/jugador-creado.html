@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{player.confirmation.page.title}">Nuevo Jugador</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <h1 th:text="#{feedback.success.created(#{player.name.singular})}">
+        El jugador se ha creado correctamente
+    </h1>
+    
+    <div class="table-container">
+        <a th:href="@{/web/jugadores}" th:text="#{generic.link.view-list}">
+            Ver Listado
+        </a>
+    </div>
+
+</body>
+</html>

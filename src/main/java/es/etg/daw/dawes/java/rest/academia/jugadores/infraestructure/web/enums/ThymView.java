@@ -7,8 +7,8 @@ public enum ThymView {
 
     JUGADOR_LIST("jugadores-lista"),
     JUGADOR_LIST_PDF("pdf/jugadores-listaPDF"),
-    JUGADOR_FORM("jugadores-formulario"),
-    JUGADOR_CREATED("jugadores-creado"),
+    JUGADOR_FORM("jugador-formulario"),
+    JUGADOR_CREATED("jugador-creado"),
     JUGADOR_DETAIL("jugadores-detalle"),
     ERROR_GENERIC("error/error-general");
 

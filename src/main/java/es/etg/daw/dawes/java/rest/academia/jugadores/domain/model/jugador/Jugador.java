@@ -9,6 +9,10 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class Jugador {
+    public Jugador() {
+        //TODO Auto-generated constructor stub
+    }
+
     private JugadorId id;
     private String nombre;
     private String apellido;

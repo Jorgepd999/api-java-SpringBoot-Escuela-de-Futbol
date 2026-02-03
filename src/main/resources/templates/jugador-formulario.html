@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{player.form.page.title}">Crear Jugador</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+<body>
+
+    <h1 th:text="#{player.form.title}">CREAR JUGADOR</h1>
+
+    <div class="table-container">
+        <form th:action="@{/web/jugadores/nuevo}" th:object="${jugador}" method="POST">
+
+            <div>
+                <label th:text="#{player.form.label.nombre}">Nombre:</label>
+                <input type="text" th:field="*{nombre}" required>
+            </div>
+            <br>
+
+            <div>
+                <label th:text="#{player.form.label.apellido}">Apellido:</label>
+                <input type="text" th:field="*{apellido}" required>
+            </div>
+            <br>
+
+            <div>
+                <label th:text="#{player.form.label.edad}">Edad:</label>
+                <input type="number" th:field="*{edad}" min="1" required>
+            </div>
+            <br>
+
+            <div>
+                <label th:text="#{player.form.label.piernaHabil}">Pierna hábil:</label>
+                <select th:field="*{piernaHabil}" required>
+                    <option value="">-- Selecciona --</option>
+                    <option value="DERECHA">Derecha</option>
+                    <option value="IZQUIERDA">Izquierda</option>
+                </select>
+            </div>
+            <br>
+
+            <div>
+                <label th:text="#{player.form.label.email}">Email:</label>
+                <input type="email" th:field="*{email}" required>
+            </div>
+            <br>
+
+            
+            <br>
+
+            <button type="submit" th:text="#{generic.button.save}">
+                Guardar Jugador
+            </button>
+
+        </form>
+    </div>
+
+</body>
+</html>
