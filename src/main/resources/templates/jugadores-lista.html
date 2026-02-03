@@ -76,6 +76,9 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Pierna Habil</th>
+                        <th>Email</th>
                         <th>Categoría</th>
                     </tr>
                 </thead>
@@ -84,6 +87,9 @@
                         <td th:text="${j.id}">1</td>
                         <td th:text="${j.nombre}">Nombre</td>
                         <td th:text="${j.apellido}">Apellido</td>
+                        <td th:text="${j.edad}">Edad</td>
+                        <td th:text="${j.piernaHabil}">Pierna Habil</td>
+                        <td th:text="${j.email}">Email</td>
                         <td>
                             <span th:each="c : ${categorias}" th:if="${c.id == j.categoria}" th:text="${c.nombre}">
                                 Infantil
