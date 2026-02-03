@@ -84,7 +84,7 @@
                 </thead>
                 <tbody>
                     <tr th:each="j : ${jugadores}">
-                        <td th:text="${j.id}">1</td>
+                        <td th:text="${j.id.value}">1</td>
                         <td th:text="${j.nombre}">Nombre</td>
                         <td th:text="${j.apellido}">Apellido</td>
                         <td th:text="${j.edad}">Edad</td>
