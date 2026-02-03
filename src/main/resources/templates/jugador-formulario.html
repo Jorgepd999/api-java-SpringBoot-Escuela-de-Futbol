@@ -16,7 +16,9 @@
 
             <div>
                 <label th:text="#{player.form.label.nombre}">Nombre:</label>
-                <input type="text" th:field="*{nombre}" required>
+                <input type="text" th:field="*{nombre}" required minlength="3" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                    title="Mínimo 3 letras. No se permiten números">
+
             </div>
             <br>
 
@@ -28,7 +30,7 @@
 
             <div>
                 <label th:text="#{player.form.label.edad}">Edad:</label>
-                <input type="number" th:field="*{edad}" min="1" required>
+                <input type="number" th:field="*{edad}" min="5" required>
             </div>
             <br>
 
