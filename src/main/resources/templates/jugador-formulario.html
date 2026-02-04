@@ -15,7 +15,7 @@
         <form th:action="@{/web/jugadores/nuevo}" th:object="${jugador}" method="POST">
 
             <div>
-                <label th:text="#{player.form.label.nombre}">Nombre:</label>
+                <label th:text="#{player.form.label.name}">Nombre:</label>
                 <input type="text" th:field="*{nombre}" required minlength="3" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
                     title="Mínimo 3 letras. No se permiten números">
 

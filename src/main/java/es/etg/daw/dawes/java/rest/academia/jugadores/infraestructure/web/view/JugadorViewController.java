@@ -54,7 +54,7 @@ public class JugadorViewController {
         return ThymView.JUGADOR_LIST.getPath();
     }
 
-    // Carga la vista del formulario http://localhost:8082/web/jugadores/nuevo
+    // Carga la vista del formulario http://localhost:8080/web/jugadores/nuevo
     @GetMapping(WebRoutes.JUGADOR_NUEVO)
     public String formulario(Model model) {
 
@@ -82,7 +82,7 @@ public class JugadorViewController {
     }
 
 
-     // Listado de Jugadores http://localhost:8082/web/jugadores/pdf
+     // Listado de Jugadores http://localhost:8080/web/jugadores/pdf
     @GetMapping(WebRoutes.JUGADORES_PDF)
     public void exportarPDF(HttpServletRequest request,
             HttpServletResponse response) throws Exception {
