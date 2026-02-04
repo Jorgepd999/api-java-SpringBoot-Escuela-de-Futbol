@@ -1,10 +1,19 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.view;
 
+import java.util.List;
+import java.util.Locale;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 import org.springframework.ui.Model;
+
+import java.io.OutputStream;
+import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.CreateJugadorCommand;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.categoria.FindCategoriaService;
@@ -14,6 +23,8 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Cate
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums.ModelAttribute;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums.ThymView;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.constants.WebRoutes;
 
@@ -24,6 +35,9 @@ public class JugadorViewController {
     private final FindJugadorUseService findJugadorUseService;
     private final FindCategoriaService findCategoriaUseService;
     private final CreateJugadorUseService createJugadorService;
+    private final TemplateEngine templateEngine; // Motor de Thymeleaf
+     @Autowired
+    private LocaleResolver localeResolver;
 
     @GetMapping(WebRoutes.JUGADORES_BASE)
     public String listJugadores(Model model) {
@@ -64,5 +78,35 @@ public class JugadorViewController {
                 new CreateJugadorCommand(nombre, apellido, edad, piernaHabil, email, new CategoriaId(categoria)));
 
         return ThymView.JUGADOR_CREATED.getPath();
+    }
+
+
+     // Listado de Jugadores http://localhost:8082/web/jugadores/pdf
+    @GetMapping(WebRoutes.JUGADORES_PDF)
+    public void exportarPDF(HttpServletRequest request,
+            HttpServletResponse response) throws Exception {
+
+        // Obtengo los datos
+        List<Jugador> productos = findJugadorUseService.findAll();
+
+        // Obtengo el locale actual de la sesión
+        Locale locale = localeResolver.resolveLocale(request);
+
+        // Preparar el contexto de Thymeleaf con el locale
+        Context context = new Context(locale);
+        context.setVariable("productos", productos);
+
+        String htmlContent = templateEngine.process(ThymView.JUGADOR_LIST_PDF.getPath(), context);
+
+        // Preparo la respuesta
+        response.setContentType("application/pdf");
+        response.setHeader("Content-Disposition", "attachment; filename=productos.pdf");
+
+        // Generar PDF
+        OutputStream outputStream = response.getOutputStream();
+        PdfRendererBuilder builder = new PdfRendererBuilder();
+        builder.withHtmlContent(htmlContent, null);
+        builder.toStream(outputStream);
+        builder.run();
     }
 }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale}">
+<head>
+    <meta charset="UTF-8" />
+    <title>Listado de Jugadores</title>
+
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background-color: #f2f4f7;
+            color: #222;
+            font-size: 12px;
+        }
+
+        /* Cabecera */
+        .header {
+            margin-bottom: 25px;
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Tabla */
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            background-color: #243b55;
+        }
+
+        thead th {
+            color: #ffffff;
+            padding: 12px 10px;
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        tbody td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f7f9fc;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Columnas */
+        .col-id {
+            width: 10%;
+            font-weight: bold;
+            color: #1e3c72;
+        }
+
+        .col-dorsal {
+            width: 15%;
+            text-align: center;
+            font-weight: bold;
+            color: #2a5298;
+        }
+
+        .col-posicion {
+            width: 25%;
+        }
+
+        /* Pie */
+        .footer {
+            margin-top: 30px;
+            font-size: 10px;
+            text-align: center;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Listado de jugadores</h1>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-id">ID</th>
+                    <th>Nombre</th>
+                    <th class="col-posicion">Posición</th>
+                    <th class="col-dorsal">Dorsal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="j : ${jugadores}">
+                    <td class="col-id" th:text="${j.id}">1</td>
+                    <td th:text="${j.nombre}">Jugador Ejemplo</td>
+                    <td class="col-posicion" th:text="${j.posicion}">Delantero</td>
+                    <td class="col-dorsal" th:text="${j.dorsal}">9</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        Documento generado automáticamente
+    </div>
+
+</body>
+</html>

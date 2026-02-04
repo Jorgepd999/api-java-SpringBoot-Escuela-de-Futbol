@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Email;
 
-ppublic record JugadorRequest(
+public record JugadorRequest(
 
     // ===== Nombre =====
     @NotBlank(message = "{jugador.valid.nombre.no_vacio}")

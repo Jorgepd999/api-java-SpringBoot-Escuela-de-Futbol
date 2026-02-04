@@ -5,50 +5,7 @@
     <meta charset="UTF-8">
     <title th:text="#{jugador.list.page.title}">Listado de Jugadores</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
-    <style>
-        /* Flexbox para alinear las tablas horizontalmente */
-        .tables-wrapper {
-            display: flex;
-            gap: 50px;
-            /* separación entre las tablas */
-            align-items: flex-start;
-            /* alineación superior */
-        }
-
-        .table-container {
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th,
-        td {
-            border: 1px solid #999;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        .language-selector a {
-            margin-right: 10px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-    </style>
-</head>
-
+ 
 <body>
     <!-- Selector de idiomas -->
     <div class="language-selector">
@@ -69,6 +26,12 @@
             <a th:href="@{/web/jugadores/nuevo}" th:text="#{generic.link.create}">
                 Crear Nuevo
             </a>
+             <a th:href="@{/web/jugadores/pdf}">
+            <img th:src="@{/images/archivo-pdf.png}" 
+                 th:alt="#{generic.link.export.pdf}" 
+                 th:title="#{generic.link.export.pdf}" 
+                 width="50">
+        </a>
 
             <table>
                 <thead>
