@@ -54,7 +54,7 @@ public class JugadorViewController {
         return ThymView.JUGADOR_LIST.getPath();
     }
 
-    // Carga la vista del formulario http://localhost:8082/web/productos/nuevo
+    // Carga la vista del formulario http://localhost:8082/web/jugadores/nuevo
     @GetMapping(WebRoutes.JUGADOR_NUEVO)
     public String formulario(Model model) {
 
