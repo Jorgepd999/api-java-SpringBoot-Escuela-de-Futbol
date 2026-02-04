@@ -24,12 +24,17 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Cate
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.mapper.CategoriaMapper;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.categoria.CategoriaRequest;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.categoria.CategoriaResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/categorias") 
 @RequiredArgsConstructor
+@Tag(name = "Categorias", description = "Operaciones relacionadas con la gestión de las categorias")
 public class CategoriaRestController {
 
     private final CreateCategoriaService createCategoriaService;
@@ -45,6 +50,13 @@ public class CategoriaRestController {
         return ResponseEntity.status(HttpStatus.CREATED).body(CategoriaMapper.toResponse(categoria));
 
     }
+
+      @Operation(summary = "Obtiene el listado de las categorias", description = "Busca en la base de datos todos los categorias y sus detalles")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Listado de categorias generado"),
+            @ApiResponse(responseCode = "404", description = "No hay categorias en la base de datos")
+    })
+
 
     @GetMapping
     public List<CategoriaResponse> allCategorias() {
