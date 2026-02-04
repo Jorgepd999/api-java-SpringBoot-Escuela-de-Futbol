@@ -19,6 +19,7 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.categoria.FindCategoriaService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.CreateJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.FindJugadorUseService;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Categoria;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.CategoriaId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums.ModelAttribute;
@@ -87,20 +88,22 @@ public class JugadorViewController {
             HttpServletResponse response) throws Exception {
 
         // Obtengo los datos
-        List<Jugador> productos = findJugadorUseService.findAll();
+        List<Jugador> jugadores = findJugadorUseService.findAll();
+        List<Categoria> categorias = findCategoriaUseService.findAll();
 
         // Obtengo el locale actual de la sesión
         Locale locale = localeResolver.resolveLocale(request);
 
         // Preparar el contexto de Thymeleaf con el locale
         Context context = new Context(locale);
-        context.setVariable("productos", productos);
+        context.setVariable("jugadores", jugadores);
+        context.setVariable("categorias", categorias);
 
         String htmlContent = templateEngine.process(ThymView.JUGADOR_LIST_PDF.getPath(), context);
 
         // Preparo la respuesta
         response.setContentType("application/pdf");
-        response.setHeader("Content-Disposition", "attachment; filename=productos.pdf");
+        response.setHeader("Content-Disposition", "attachment; filename=jugadores.pdf");
 
         // Generar PDF
         OutputStream outputStream = response.getOutputStream();

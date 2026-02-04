@@ -11,34 +11,43 @@
         }
 
         body {
-            font-family: "Segoe UI", Arial, sans-serif;
-            background-color: #f2f4f7;
-            color: #222;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #1f2933;
             font-size: 12px;
         }
 
-        /* Cabecera */
+        /* ===== CABECERA ===== */
         .header {
-            margin-bottom: 25px;
-            padding: 16px 20px;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: #fff;
-            border-radius: 10px;
+            margin-bottom: 28px;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #1f3c88, #162447);
+            color: #ffffff;
+            border-radius: 12px;
         }
 
         .header h1 {
             margin: 0;
-            font-size: 20px;
+            font-size: 22px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
         }
 
-        /* Tabla */
+        .header::after {
+            content: "";
+            display: block;
+            margin-top: 8px;
+            width: 60px;
+            height: 3px;
+            background-color: #facc15;
+        }
+
+        /* ===== CONTENEDOR TABLA ===== */
         .table-container {
             background-color: #ffffff;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
 
         table {
@@ -46,56 +55,79 @@
             border-collapse: collapse;
         }
 
+        /* ===== CABECERA TABLA ===== */
         thead {
-            background-color: #243b55;
+            background-color: #162447;
         }
 
         thead th {
             color: #ffffff;
-            padding: 12px 10px;
+            padding: 12px;
             text-align: left;
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #facc15;
         }
 
+        /* ===== CUERPO TABLA ===== */
         tbody td {
-            padding: 10px;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 10px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: middle;
         }
 
         tbody tr:nth-child(even) {
-            background-color: #f7f9fc;
+            background-color: #f9fafb;
+        }
+
+        tbody tr:hover {
+            background-color: #eef2ff;
         }
 
         tbody tr:last-child td {
             border-bottom: none;
         }
 
-        /* Columnas */
+        /* ===== COLUMNAS ===== */
         .col-id {
-            width: 10%;
+            width: 8%;
             font-weight: bold;
-            color: #1e3c72;
+            color: #1f3c88;
         }
 
-        .col-dorsal {
-            width: 15%;
+        .col-edad {
+            width: 8%;
             text-align: center;
             font-weight: bold;
-            color: #2a5298;
         }
 
-        .col-posicion {
-            width: 25%;
+        .col-email {
+            font-size: 11px;
+            color: #4b5563;
         }
 
-        /* Pie */
+        /* ===== CATEGORÍA (BADGE) ===== */
+        .categoria-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: #e0e7ff;
+            color: #1e40af;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== PIE ===== */
         .footer {
-            margin-top: 30px;
+            margin-top: 35px;
+            padding-top: 8px;
             font-size: 10px;
             text-align: center;
-            color: #666;
+            color: #6b7280;
+            border-top: 1px solid #d1d5db;
         }
     </style>
 </head>
@@ -103,32 +135,45 @@
 <body>
 
     <div class="header">
-        <h1>Listado de jugadores</h1>
+        <h1 th:text="#{jugador.list.title}">Listado de jugadores</h1>
     </div>
 
     <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th class="col-id">ID</th>
-                    <th>Nombre</th>
-                    <th class="col-posicion">Posición</th>
-                    <th class="col-dorsal">Dorsal</th>
+                    <th class="col-id" th:text="#{jugador.table.header.id}">ID</th>
+                    <th th:text="#{jugador.table.header.name}">Nombre</th>
+                    <th th:text="#{jugador.table.header.apellido}">Apellido</th>
+                    <th class="col-edad">Edad</th>
+                    <th>Pierna hábil</th>
+                    <th>Email</th>
+                    <th>Categoría</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="j : ${jugadores}">
-                    <td class="col-id" th:text="${j.id}">1</td>
-                    <td th:text="${j.nombre}">Jugador Ejemplo</td>
-                    <td class="col-posicion" th:text="${j.posicion}">Delantero</td>
-                    <td class="col-dorsal" th:text="${j.dorsal}">9</td>
+                    <td class="col-id" th:text="${j.id.value}">1</td>
+                    <td th:text="${j.nombre}">Nombre</td>
+                    <td th:text="${j.apellido}">Apellido</td>
+                    <td class="col-edad" th:text="${j.edad}">18</td>
+                    <td th:text="${j.piernaHabil}">Derecha</td>
+                    <td class="col-email" th:text="${j.email}">email@correo.com</td>
+                    <td>
+                        <span class="categoria-badge"
+                              th:each="c : ${categorias}"
+                              th:if="${c.id == j.categoria}"
+                              th:text="${c.nombre}">
+                            Infantil
+                        </span>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
     <div class="footer">
-        Documento generado automáticamente
+        Documento generado automáticamente · Academia Deportiva
     </div>
 
 </body>
