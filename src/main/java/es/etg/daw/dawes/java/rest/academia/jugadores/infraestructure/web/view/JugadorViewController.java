@@ -37,10 +37,15 @@ public class JugadorViewController {
     private final FindCategoriaService findCategoriaUseService;
     private final CreateJugadorUseService createJugadorService;
     private final TemplateEngine templateEngine; // Motor de Thymeleaf
-     @Autowired
+    @Autowired
     private LocaleResolver localeResolver;
 
-    @GetMapping(WebRoutes.JUGADORES_BASE)
+    @GetMapping(WebRoutes.JUGADORES_HOME)
+    public String home() {
+        return ThymView.JUGADOR_HOME.getPath();
+    }
+
+    @GetMapping(WebRoutes.JUGADORES_LISTA)
     public String listJugadores(Model model) {
 
         model.addAttribute(
@@ -81,8 +86,7 @@ public class JugadorViewController {
         return ThymView.JUGADOR_CREATED.getPath();
     }
 
-
-     // Listado de Jugadores http://localhost:8080/web/jugadores/pdf
+    // Listado de Jugadores http://localhost:8080/web/jugadores/pdf
     @GetMapping(WebRoutes.JUGADORES_PDF)
     public void exportarPDF(HttpServletRequest request,
             HttpServletResponse response) throws Exception {

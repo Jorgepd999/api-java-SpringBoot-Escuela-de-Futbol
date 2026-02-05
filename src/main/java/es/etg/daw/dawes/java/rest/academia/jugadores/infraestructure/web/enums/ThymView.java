@@ -5,6 +5,7 @@ package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums;
  */
 public enum ThymView {
 
+    JUGADOR_HOME("jugadores-home"),
     JUGADOR_LIST("jugadores-lista"),
     JUGADOR_LIST_PDF("pdf/jugadores-listaPDF"),
     JUGADOR_FORM("jugador-formulario"),
@@ -20,5 +21,5 @@ public enum ThymView {
 
     public String getPath() {
         return this.path;
-    } 
+    }
 }
