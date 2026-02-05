@@ -104,7 +104,8 @@ public class JugadorViewController {
 
         return ThymView.JUGADOR_DELETE.getPath();
     }
-
+    
+    
     // Listado de Jugadores http://localhost:8080/web/jugadores/pdf
     @GetMapping(WebRoutes.JUGADORES_PDF)
     public void exportarPDF(HttpServletRequest request,
