@@ -115,6 +115,8 @@ public class JugadorController {
         return JugadorMapper.toResponse(jugador);
     }
 
+    
+
     // Captura errores de validación
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

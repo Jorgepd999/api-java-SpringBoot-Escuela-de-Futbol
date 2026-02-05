@@ -6,4 +6,5 @@ public interface WebRoutes {
      public static final String JUGADORES_LISTA = "/web/jugadores/lista";
      public static final String JUGADORES_PDF = "/web/jugadores/pdf";
      public static final String JUGADOR_NUEVO = "/web/jugadores/nuevo";
+     public static final String JUGADOR_BORRAR= "/web/jugadores/delete";
 }

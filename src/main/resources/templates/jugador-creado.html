@@ -23,26 +23,29 @@
     </div>
 </header>
 
-<main style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+<main class="cards-container">
 
-    <div class="table-container" >
+    <div class="table-container" style="padding: 30px; max-width: 800px; margin: auto; text-align: center;">
 
         <p style="font-size: 1.3rem; color: #ffcc00; margin-bottom: 40px;">
-            ¡El jugador se ha creado correctamente! ✅
+            ✅ ¡El jugador se ha creado correctamente!
         </p>
 
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <a th:href="@{/web/jugadores/nuevo}" class="card action-card" style="padding: 15px; font-size: 1.2rem; background-color: #1e1e1e; color: #ffcc00;">
+        <!-- Contenedor flex para botones en línea -->
+        <div class="actions" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+
+            <a th:href="@{/web/jugadores/nuevo}" class="action-card" style="flex: 1 1 200px;">
                 ➕ Crear Nuevo Jugador
             </a>
 
-            <a th:href="@{/web/menu}" class="card action-card" style="padding: 15px; font-size: 1.2rem; background-color: #ffcc00; color: #000;">
+            <a th:href="@{/web/menu}" class="action-card" style="flex: 1 1 200px;">
                 🏠 Volver al Menú
             </a>
 
-            <a th:href="@{/web/jugadores/lista}" class="card action-card" style="padding: 15px; font-size: 1.2rem; background-color: #1e1e1e; color: #ffcc00;">
-                📋 Listar Jugadores
+            <a th:href="@{/web/jugadores/pdf}" class="action-card" style="flex: 1 1 200px;">
+                📄 Exportar a PDF
             </a>
+
         </div>
 
     </div>

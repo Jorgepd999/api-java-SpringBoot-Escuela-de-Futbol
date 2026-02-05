@@ -145,3 +145,24 @@ tbody tr:hover {
 a {
     cursor: pointer;
 }
+
+.table-header {
+    background-color: #1e1e1e;
+    color: #ffcc00;
+    padding: 15px 20px;
+    border-radius: 12px 12px 0 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.table-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.table-header p {
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    color: #eee;
+}
