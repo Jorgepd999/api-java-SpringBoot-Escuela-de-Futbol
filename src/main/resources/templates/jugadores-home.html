@@ -1,20 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Gestión de Jugadores</title>
+
+    <!-- CSS común -->
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
+
 <body>
 
-<h1>Gestión de Jugadores</h1>
+<header>
+    <h1>Gestión de Jugadores</h1>
 
-<ul>
-    <li>
-        <a th:href="@{/web/jugadores/nuevo}" th:text="#{generic.link.create}"> ➕ Crear jugador</a>
-    </li>
-    <li>
-        <a th:href="@{/web/jugadores/lista}">📋 Listar jugadores</a>
-    </li>
-</ul>
+    <!-- Selector de idiomas -->
+    <div class="language-selector">
+        <a th:href="@{/web/jugadores(lang=es)}">🇪🇸</a>
+        <a th:href="@{/web/jugadores(lang=en)}">🇬🇧</a>
+        <a th:href="@{/web/jugadores(lang=ar)}">🇲🇦</a>
+        <a th:href="@{/web/jugadores(lang=de)}">🇩🇪</a>
+    </div>
+</header>
+
+<main class="cards-container">
+
+    <!-- Crear jugador -->
+    <a th:href="@{/web/jugadores/nuevo}" class="card">
+        <div class="icon">➕</div>
+        <span th:text="#{generic.link.create}">Crear jugador</span>
+    </a>
+
+    <!-- Listar jugadores -->
+    <a th:href="@{/web/jugadores/lista}" class="card">
+        <div class="icon">📋</div>
+        <span th:text="#{generic.link.list}">Listar jugadores</span>
+    </a>
+
+    <!-- Exportar PDF -->
+    <a th:href="@{/web/jugadores/pdf}" class="card">
+        <div class="icon">📄</div>
+        <span th:text="#{generic.link.export.pdf}">Exportar a PDF</span>
+    </a>
+
+</main>
 
 </body>
 </html>

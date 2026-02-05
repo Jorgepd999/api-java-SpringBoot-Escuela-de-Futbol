@@ -1,21 +1,53 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title th:text="#{player.confirmation.page.title}">Nuevo Jugador</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
+
 <body>
 
+<header>
     <h1 th:text="#{feedback.success.created(#{player.name.singular})}">
         El jugador se ha creado correctamente
     </h1>
-    
-    <div class="table-container">
-        <a th:href="@{/web/jugadores}" th:text="#{generic.link.view-list}">
-            Ver Listado
-        </a>
+
+    <!-- Selector de idiomas -->
+    <div class="language-selector">
+        <a th:href="@{/web/jugadores(lang=es)}">🇪🇸</a>
+        <a th:href="@{/web/jugadores(lang=en)}">🇬🇧</a>
+        <a th:href="@{/web/jugadores(lang=ar)}">🇲🇦</a>
+        <a th:href="@{/web/jugadores(lang=de)}">🇩🇪</a>
     </div>
+</header>
+
+<main style="display: flex; flex-direction: column; align-items: center; margin-top: 50px;">
+
+    <div class="table-container" >
+
+        <p style="font-size: 1.3rem; color: #ffcc00; margin-bottom: 40px;">
+            ¡El jugador se ha creado correctamente! ✅
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <a th:href="@{/web/jugadores/nuevo}" class="card action-card" style="padding: 15px; font-size: 1.2rem; background-color: #1e1e1e; color: #ffcc00;">
+                ➕ Crear Nuevo Jugador
+            </a>
+
+            <a th:href="@{/web/menu}" class="card action-card" style="padding: 15px; font-size: 1.2rem; background-color: #ffcc00; color: #000;">
+                🏠 Volver al Menú
+            </a>
+
+            <a th:href="@{/web/jugadores/lista}" class="card action-card" style="padding: 15px; font-size: 1.2rem; background-color: #1e1e1e; color: #ffcc00;">
+                📋 Listar Jugadores
+            </a>
+        </div>
+
+    </div>
+
+</main>
 
 </body>
 </html>

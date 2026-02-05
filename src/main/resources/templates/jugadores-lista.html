@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title th:text="#{player.list.page.title}">Listado de Jugadores</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
- 
+</head>
+
 <body>
+
+<header>
+    <h1 th:text="#{player.list.title}">Listado de Jugadores</h1>
+
     <!-- Selector de idiomas -->
     <div class="language-selector">
         <a th:href="@{/web/jugadores(lang=es)}">🇪🇸</a>
@@ -14,59 +18,61 @@
         <a th:href="@{/web/jugadores(lang=ar)}">🇲🇦</a>
         <a th:href="@{/web/jugadores(lang=de)}">🇩🇪</a>
     </div>
+</header>
 
-    <hr>
-    <h1 th:text="#{player.list.title}">LISTADO DE JUGADORES</h1>
+<main>
 
-    <div class="tables-wrapper">
-        <!-- Tabla Jugadores -->
-        <div class="table-container">
-            <h2>Jugadores</h2>
-
-            <a th:href="@{/web/jugadores/nuevo}" th:text="#{generic.link.create}">
-                Crear Nuevo
-            </a>
-             <a th:href="@{/web/jugadores/pdf}">
-            <img th:src="@{/images/archivo-pdf.png}" 
-                 th:alt="#{generic.link.export.pdf}" 
-                 th:title="#{generic.link.export.pdf}" 
-                 width="50">
+    <!-- Acciones -->
+    <div class="actions">
+        <a th:href="@{/web/jugadores/nuevo}" class="action-card">
+            <span class="icon">➕</span>
+            <span th:text="#{generic.link.create}">Crear jugador</span>
         </a>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
-                        <th>Edad</th>
-                        <th>Pierna Habil</th>
-                        <th>Email</th>
-                        <th>Categoría</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="j : ${jugadores}">
-                        <td th:text="${j.id.value}">1</td>
-                        <td th:text="${j.nombre}">Nombre</td>
-                        <td th:text="${j.apellido}">Apellido</td>
-                        <td th:text="${j.edad}">Edad</td>
-                        <td th:text="${j.piernaHabil}">Pierna Habil</td>
-                        <td th:text="${j.email}">Email</td>
-                        <td>
-                            <span th:each="c : ${categorias}" th:if="${c.id == j.categoria}" th:text="${c.nombre}">
-                                Infantil
-                            </span>
-                        </td>
+        <a th:href="@{/web/menu}" class="action-card">
+            <span class="icon">⬅️</span>
+            <span th:text="#{generic.link.volver}">Volver</span>
+        </a>
 
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+        <a th:href="@{/web/jugadores/pdf}" class="action-card">
+            <span class="icon">📄</span>
+            <span th:text="#{generic.link.export.pdf}">Exportar a PDF</span>
+        </a>
     </div>
 
+    <!-- Tabla -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th th:text="#{player.name}">Nombre</th>
+                <th th:text="#{player.surname}">Apellido</th>
+                <th th:text="#{player.age}">Edad</th>
+                <th th:text="#{player.leg}">Pierna Hábil</th>
+                <th>Email</th>
+                <th th:text="#{player.category}">Categoría</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="j : ${jugadores}">
+                <td th:text="${j.id.value}">1</td>
+                <td th:text="${j.nombre}">Nombre</td>
+                <td th:text="${j.apellido}">Apellido</td>
+                <td th:text="${j.edad}">Edad</td>
+                <td th:text="${j.piernaHabil}">Pierna Habil</td>
+                <td th:text="${j.email}">Email</td>
+                <td>
+                    <span th:each="c : ${categorias}"
+                          th:if="${c.id == j.categoria}"
+                          th:text="${c.nombre}">
+                        Infantil
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</main>
 
 </body>
-
 </html>

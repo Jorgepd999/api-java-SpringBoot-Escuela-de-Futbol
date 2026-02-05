@@ -9,32 +9,41 @@
 
 <body>
 
+<header>
     <h1 th:text="#{player.form.title}">CREAR JUGADOR</h1>
 
-    <div class="table-container">
+    <!-- Selector de idiomas -->
+    <div class="language-selector">
+        <a th:href="@{/web/jugadores(lang=es)}">🇪🇸</a>
+        <a th:href="@{/web/jugadores(lang=en)}">🇬🇧</a>
+        <a th:href="@{/web/jugadores(lang=ar)}">🇲🇦</a>
+        <a th:href="@{/web/jugadores(lang=de)}">🇩🇪</a>
+    </div>
+</header>
+
+<main class="cards-container">
+
+    <div class="table-container" style="padding: 30px; max-width: 600px; margin: auto;">
         <form th:action="@{/web/jugadores/nuevo}" th:object="${jugador}" method="POST">
 
-            <div>
+            <div class="form-group">
                 <label th:text="#{player.form.label.name}">Nombre:</label>
-                <input type="text" th:field="*{nombre}" required minlength="3" pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
-                    title="Mínimo 3 letras. No se permiten números">
-
+                <input type="text" th:field="*{nombre}" required minlength="3"
+                       pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                       title="Mínimo 3 letras. No se permiten números">
             </div>
-            <br>
 
-            <div>
+            <div class="form-group">
                 <label th:text="#{player.form.label.apellido}">Apellido:</label>
                 <input type="text" th:field="*{apellido}" required>
             </div>
-            <br>
 
-            <div>
+            <div class="form-group">
                 <label th:text="#{player.form.label.edad}">Edad:</label>
                 <input type="number" th:field="*{edad}" min="5" required>
             </div>
-            <br>
 
-            <div>
+            <div class="form-group">
                 <label th:text="#{player.form.label.piernaHabil}">Pierna hábil:</label>
                 <select th:field="*{piernaHabil}" required>
                     <option value="">-- Selecciona --</option>
@@ -42,32 +51,32 @@
                     <option value="Izquierda">Izquierda</option>
                 </select>
             </div>
-            <br>
 
-            <div>
+            <div class="form-group">
                 <label th:text="#{player.form.label.email}">Email:</label>
                 <input type="email" th:field="*{email}" required>
             </div>
-            <br>
 
-            <div>
+            <div class="form-group">
                 <label th:text="#{player.form.label.categoria}">Categoría:</label>
                 <select name="categoria" required>
                     <option value="">-- Selecciona una categoría --</option>
                     <option th:each="categoria : ${categorias}" th:value="${categoria.id.value}"
-                        th:text="${categoria.nombre}">
-                    </option>
+                            th:text="${categoria.nombre}"></option>
                 </select>
             </div>
-            <br>
 
-            <button type="submit" th:text="#{generic.button.save}">
-                Guardar Jugador
-            </button>
+            <div class="actions" style="margin-top: 20px;">
+                <button type="submit" class="action-card" th:text="#{generic.button.save}">Guardar Jugador</button>
+                <a th:href="@{/web/menu}" class="action-card" style="background-color:#f0f0f0; color:#1e293b;">
+                    Volver
+                </a>
+            </div>
 
         </form>
     </div>
 
-</body>
+</main>
 
+</body>
 </html>

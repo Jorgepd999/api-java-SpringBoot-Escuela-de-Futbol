@@ -1,81 +1,147 @@
-/* General */
+/* =========================
+   RESET / BASE
+========================= */
 body {
-    background-color: #121212; /* Fondo oscuro profundo */
-    color: #eeeeee;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 40px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    color: #1e293b;
 }
 
-h1 {
-    color: #ffcc00; /* Amarillo dorado */
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-left: 5px solid #ffcc00;
-    padding-left: 15px;
+/* =========================
+   HEADER
+========================= */
+header {
+    background-color: #1e293b;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Contenedor de la tabla para bordes redondeados */
-.table-container {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid #333;
+header h1 {
+    margin: 0;
+    font-size: 22px;
 }
 
+/* =========================
+   LANGUAGE SELECTOR
+========================= */
+.language-selector a {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+main {
+    padding: 30px 40px;
+}
+
+/* =========================
+   CARDS (HOME)
+========================= */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px;
+}
+
+.card {
+    background-color: white;
+    width: 240px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    text-decoration: none;
+    color: #1e293b;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.card .icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.card span {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* =========================
+   ACTION CARDS (LISTADO)
+========================= */
+.actions {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.action-card {
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.action-card .icon {
+    font-size: 22px;
+}
+
+/* =========================
+   TABLE
+========================= */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #1e1e1e;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* Encabezados */
 thead {
-    background-color: #ffcc00;
+    background-color: #1e293b;
+    color: white;
 }
 
-th {
-    color: #000; /* Texto negro sobre fondo amarillo */
-    padding: 15px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    font-weight: bold;
+th, td {
+    padding: 12px 15px;
     text-align: left;
 }
 
-/* Filas y Celdas */
-td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #333;
-    color: #ccc;
+tbody tr:nth-child(even) {
+    background-color: #f1f5f9;
 }
 
-/* Efecto Hover: Resalta la fila al pasar el mouse */
 tbody tr:hover {
-    background-color: #2a2a2a;
-    transition: background 0.3s ease;
+    background-color: #e2e8f0;
 }
 
-/* Estilo para el ID (Destacado en amarillo) */
-td:first-child {
-    color: #ffcc00;
-    font-weight: bold;
-}
-
-/* Botón de actualizar */
-#cargarProductos {
-    background-color: transparent;
-    color: #ffcc00;
-    border: 2px solid #ffcc00;
-    padding: 10px 20px;
-    border-radius: 5px;
+/* =========================
+   LINKS GENERIC
+========================= */
+a {
     cursor: pointer;
-    font-weight: bold;
-    margin-bottom: 20px;
-    transition: all 0.3s;
-}
-
-#cargarProductos:hover {
-    background-color: #ffcc00;
-    color: #000;
-    box-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
 }
