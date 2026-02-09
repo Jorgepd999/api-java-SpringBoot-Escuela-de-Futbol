@@ -4,7 +4,130 @@
     <meta charset="UTF-8" />
     <title th:text="#{jugador.lista.titulo_pagina}">Listado de Jugadores</title>
     <style>
-        /* Tus estilos para PDF aquí (igual que antes) */
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+
+        body {
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #1f2933;
+            font-size: 12px;
+        }
+
+        /* ===== CABECERA ===== */
+        .header {
+            margin-bottom: 28px;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #1f3c88, #162447);
+            color: #ffffff;
+            border-radius: 12px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 22px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header::after {
+            content: "";
+            display: block;
+            margin-top: 8px;
+            width: 60px;
+            height: 3px;
+            background-color: #facc15;
+        }
+
+        /* ===== CONTENEDOR TABLA ===== */
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        /* ===== CABECERA TABLA ===== */
+        thead {
+            background-color: #162447;
+        }
+
+        thead th {
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #facc15;
+        }
+
+        /* ===== CUERPO TABLA ===== */
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: middle;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        tbody tr:hover {
+            background-color: #eef2ff;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ===== COLUMNAS ===== */
+        .col-id {
+            width: 8%;
+            font-weight: bold;
+            color: #1f3c88;
+        }
+
+        .col-edad {
+            width: 8%;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .col-email {
+            font-size: 11px;
+            color: #4b5563;
+        }
+
+        /* ===== CATEGORÍA (BADGE) ===== */
+        .categoria-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: #e0e7ff;
+            color: #1e40af;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== PIE ===== */
+        .footer {
+            margin-top: 35px;
+            padding-top: 8px;
+            font-size: 10px;
+            text-align: center;
+            color: #6b7280;
+            border-top: 1px solid #d1d5db;
+        }
     </style>
 </head>
 
