@@ -1,58 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{player.list.page.title}">Listado de Jugadores</title>
+    <title th:text="#{jugador.lista.titulo_pagina}">Listado de Jugadores</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
 
 <body>
 
 <header>
-    <h1 th:text="#{player.list.title}">Listado de Jugadores</h1>
+    <h1 th:text="#{jugador.lista.titulo}">Listado de Jugadores</h1>
 
-    <!-- Selector de idiomas -->
     <div class="language-selector">
-        <a th:href="@{/web/jugadores/lista(lang=es)}">🇪🇸</a>
-        <a th:href="@{/web/jugadores/lista(lang=en)}">🇬🇧</a>
-        <a th:href="@{/web/jugadores/lista(lang=jp)}">🇯🇵</a>
+        <a th:href="@{/web/jugadores/lista(lang='es')}">🇪🇸</a>
+        <a th:href="@{/web/jugadores/lista(lang='en')}">🇬🇧</a>
+        <a th:href="@{/web/jugadores/lista(lang='jp')}">🇯🇵</a>
     </div>
 </header>
 
 <main>
 
-    <!-- Acciones -->
     <div class="actions">
-        <a th:href="@{/web/jugadores/nuevo}" class="action-card">
-            <span class="icon">➕</span>
-            <span th:text="#{generic.link.create}">Crear jugador</span>
-        </a>
-
-        <a th:href="@{/web/menu}" class="action-card">
-            <span class="icon">⬅️</span>
-            <span th:text="#{generic.link.volver}">Volver</span>
-        </a>
-
-        <a th:href="@{/web/jugadores/pdf}" class="action-card">
-            <span class="icon">📄</span>
-            <span th:text="#{generic.link.export.pdf}">Exportar a PDF</span>
-        </a>
+        <a th:href="@{/web/jugadores/nuevo}" class="action-card" th:text="#{generico.enlace.crear}">Crear jugador</a>
+        <a th:href="@{/web/menu}" class="action-card" th:text="#{generico.enlace.volver}">Volver</a>
+        <a th:href="@{/web/jugadores/pdf}" class="action-card" th:text="#{generico.enlace.exportar.pdf}">Exportar a PDF</a>
     </div>
 
-    <!-- Tabla -->
     <table>
         <thead>
-        <tr>
-            <th th:text="#{player.table.header.id}">ID</th>
-            <th th:text="#{player.table.header.name}">Name</th>
-            <th th:text="#{player.table.header.surname}">Surname</th>
-            <th th:text="#{player.table.header.age}">Age</th>
-            <th th:text="#{player.table.header.dominantLeg}">Dominant Leg</th>
-            <th th:text="#{player.table.header.email}">Email</th>
-            <th th:text="#{player.table.header.category}">Category</th>
-        </tr>
+            <tr>
+                <th th:text="#{jugador.tabla.cabecera.id}">ID</th>
+                <th th:text="#{jugador.tabla.cabecera.nombre}">Nombre</th>
+                <th th:text="#{jugador.tabla.cabecera.apellido}">Apellido</th>
+                <th th:text="#{jugador.tabla.cabecera.edad}">Edad</th>
+                <th th:text="#{jugador.tabla.cabecera.pierna_habil}">Pierna hábil</th>
+                <th th:text="#{jugador.tabla.cabecera.email}">Email</th>
+                <th th:text="#{jugador.tabla.cabecera.categoria}">Categoría</th>
+                <th th:text="#{generico.boton.eliminar}">Eliminar</th>
+            </tr>
         </thead>
-
         <tbody>
             <tr th:each="j : ${jugadores}">
                 <td th:text="${j.id.value}">1</td>
@@ -62,11 +49,14 @@
                 <td th:text="${j.piernaHabil}">Pierna Habil</td>
                 <td th:text="${j.email}">Email</td>
                 <td>
-                    <span th:each="c : ${categorias}"
-                          th:if="${c.id == j.categoria}"
-                          th:text="${c.nombre}">
-                        Infantil
-                    </span>
+                    <span th:each="c : ${categorias}" th:if="${c.id == j.categoria}" th:text="${c.nombre}">Infantil</span>
+                </td>
+                <td>
+                    <form th:action="@{|/web/jugadores/delete/${j.id.value}|}" method="post" th:object="${j}" style="display:inline;">
+                        <button type="submit" class="action-card" style="background-color:#ff4d4d; color:#fff;" 
+                                onclick="return confirm('¿Estás seguro de que quieres eliminar este jugador?');"
+                                th:text="#{generico.boton.eliminar}">Eliminar</button>
+                    </form>
                 </td>
             </tr>
         </tbody>
