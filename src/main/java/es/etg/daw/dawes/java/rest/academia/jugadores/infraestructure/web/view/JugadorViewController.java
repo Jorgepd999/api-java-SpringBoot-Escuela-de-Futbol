@@ -18,10 +18,12 @@ import org.thymeleaf.context.Context;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.CreateJugadorCommand;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.EditJugadorCommand;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.categoria.FindCategoriaService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.CreateJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador.FindJugadorUseService;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.DeleteJugadorUseCase;
+import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.EditJugadorUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Categoria;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.CategoriaId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
@@ -41,6 +43,7 @@ public class JugadorViewController {
     private final FindCategoriaService findCategoriaUseService;
     private final CreateJugadorUseService createJugadorService;
     private final DeleteJugadorUseCase deleteJugadorUseService;
+    private final EditJugadorUseCase editJugadorUseService;
     private final TemplateEngine templateEngine; // Motor de Thymeleaf
     @Autowired
     private LocaleResolver localeResolver;
@@ -113,6 +116,41 @@ public class JugadorViewController {
         deleteJugadorUseService.delete(new JugadorId(id));
 
         return "redirect:/web/jugadores/borrar";
+    }
+
+    @GetMapping("/web/jugadores/editar")
+    public String mostrarFormularioEdicion(@RequestParam Integer id, Model model) {
+        // Buscar el jugador por ID usando tu servicio
+        Jugador jugador = findJugadorUseService.findById(id);
+
+        // Añadir el jugador al modelo para Thymeleaf
+        model.addAttribute("jugador", jugador);
+
+        return "jugador_editar"; // Este es el nombre del HTML de edición (jugador_editar.html)
+    }
+
+    @PostMapping("/web/jugadores/editar/{id}")
+    public String editarJugador(
+            @PathVariable Integer id,
+            @RequestParam String nombre,
+            @RequestParam String apellido,
+            @RequestParam int edad,
+            @RequestParam String piernaHabil,
+            @RequestParam String email) {
+
+        // Crear el comando de edición sin categoría
+        EditJugadorCommand comando = new EditJugadorCommand(
+                new JugadorId(id),
+                nombre,
+                apellido,
+                edad,
+                piernaHabil,
+                email);
+
+        // Llamar al use case de edición
+        editJugadorUseService.update(comando);
+
+        return "redirect:/web/jugadores/editar";
     }
 
     // Listado de Jugadores http://localhost:8080/web/jugadores/pdf

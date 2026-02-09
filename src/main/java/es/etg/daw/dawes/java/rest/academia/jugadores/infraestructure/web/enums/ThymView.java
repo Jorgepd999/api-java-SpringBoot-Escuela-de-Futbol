@@ -8,6 +8,7 @@ public enum ThymView {
     JUGADOR_HOME("jugadores-home"),
     JUGADOR_LIST("jugadores-lista"),
     JUGADOR_DELETE("jugador-borrar"),
+    JUGADOR_UPDATE("jugadores-editar"),
     JUGADOR_LIST_PDF("pdf/jugadores-listaPDF"),
     JUGADOR_FORM("jugador-formulario"),
     JUGADOR_CREATED("jugador-creado"),
