@@ -15,10 +15,9 @@
 
     <!-- Selector de idiomas -->
     <div class="language-selector">
-        <a th:href="@{/web/jugadores(lang=es)}">🇪🇸</a>
-        <a th:href="@{/web/jugadores(lang=en)}">🇬🇧</a>
-        <a th:href="@{/web/jugadores(lang=ar)}">🇲🇦</a>
-        <a th:href="@{/web/jugadores(lang=de)}">🇩🇪</a>
+        <a th:href="@{/web/menu(lang=es)}">🇪🇸</a>
+        <a th:href="@{/web/menu(lang=en)}">🇬🇧</a>
+        <a th:href="@{/web/menu(lang=jp)}">🇯🇵</a>
     </div>
 </header>
 
@@ -33,7 +32,7 @@
     <!-- Listar jugadores -->
     <a th:href="@{/web/jugadores/lista}" class="card">
         <div class="icon">📋</div>
-        <span th:text="#{generic.link.list}">Listar jugadores</span>
+        <span th:text="#{generic.link.view-list}">Listar jugadores</span>
     </a>
 
     <!-- Exportar PDF -->
@@ -46,7 +45,7 @@
     <form th:action="@{/web/jugadores/delete}" method="post" onsubmit="return confirm('¿Estás seguro de que quieres eliminar este jugador?');" style="display:inline;">
         <button type="submit" class="card" style="border:none; background:white;">
             <div class="icon">🗑</div>
-            <span>Eliminar jugador</span>
+            <span th:text ="#{generic.button.delete}">Eliminar jugador</span>
         </button>
     </form>
 

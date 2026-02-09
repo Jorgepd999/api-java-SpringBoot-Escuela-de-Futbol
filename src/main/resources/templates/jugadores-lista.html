@@ -13,10 +13,9 @@
 
     <!-- Selector de idiomas -->
     <div class="language-selector">
-        <a th:href="@{/web/jugadores(lang=es)}">🇪🇸</a>
-        <a th:href="@{/web/jugadores(lang=en)}">🇬🇧</a>
-        <a th:href="@{/web/jugadores(lang=ar)}">🇲🇦</a>
-        <a th:href="@{/web/jugadores(lang=de)}">🇩🇪</a>
+        <a th:href="@{/web/jugadores/lista(lang=es)}">🇪🇸</a>
+        <a th:href="@{/web/jugadores/lista(lang=en)}">🇬🇧</a>
+        <a th:href="@{/web/jugadores/lista(lang=jp)}">🇯🇵</a>
     </div>
 </header>
 
@@ -43,16 +42,17 @@
     <!-- Tabla -->
     <table>
         <thead>
-            <tr>
-                <th>ID</th>
-                <th th:text="#{player.table.header.name}">Nombre</th>
-                <th th:text="#{player.surname}">Apellido</th>
-                <th th:text="#{player.age}">Edad</th>
-                <th th:text="#{player.leg}">Pierna Hábil</th>
-                <th>Email</th>
-                <th th:text="#{player.category}">Categoría</th>
-            </tr>
+        <tr>
+            <th th:text="#{player.table.header.id}">ID</th>
+            <th th:text="#{player.table.header.name}">Name</th>
+            <th th:text="#{player.table.header.surname}">Surname</th>
+            <th th:text="#{player.table.header.age}">Age</th>
+            <th th:text="#{player.table.header.dominantLeg}">Dominant Leg</th>
+            <th th:text="#{player.table.header.email}">Email</th>
+            <th th:text="#{player.table.header.category}">Category</th>
+        </tr>
         </thead>
+
         <tbody>
             <tr th:each="j : ${jugadores}">
                 <td th:text="${j.id.value}">1</td>
