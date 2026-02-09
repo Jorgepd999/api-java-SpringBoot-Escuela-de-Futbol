@@ -24,25 +24,25 @@
 <main class="cards-container">
 
     <!-- Crear jugador -->
-    <a th:href="@{/web/jugadores/nuevo(lang=${param.lang})}" class="card">
+    <a th:href="@{/web/jugadores/nuevo(lang=${param.lang} ?: 'es')}" class="card">
         <div class="icon">➕</div>
         <span th:text="#{generic.link.create}">Crear jugador</span>
     </a>
 
     <!-- Listar jugadores -->
-    <a th:href="@{/web/jugadores/lista(lang=${param.lang})}" class="card">
+    <a th:href="@{/web/jugadores/lista(lang=${param.lang} ?: 'es')}" class="card">
         <div class="icon">📋</div>
         <span th:text="#{generic.link.view-list}">Listar jugadores</span>
     </a>
 
     <!-- Exportar PDF -->
-    <a th:href="@{/web/jugadores/pdf(lang=${param.lang})}" class="card">
+    <a th:href="@{/web/jugadores/pdf(lang=${param.lang} ?: 'es')}" class="card">
         <div class="icon">📄</div>
         <span th:text="#{generic.link.export.pdf}">Exportar a PDF</span>
     </a>
 
     <!-- Eliminar jugador -->
-    <form th:action="@{/web/jugadores/delete(lang=${param.lang})}" method="post" 
+    <form th:action="@{/web/jugadores/delete(lang=${param.lang} ?: 'es')}" method="post" 
           onsubmit="return confirm('¿Estás seguro de que quieres eliminar este jugador?');" 
           style="display:inline;">
         <button type="submit" class="card" style="border:none; background:white;">
