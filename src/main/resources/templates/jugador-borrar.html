@@ -51,6 +51,8 @@
                     <th th:text="#{player.leg}">Pierna Hábil</th>
                     <th>Email</th>
                     <th th:text="#{player.category}">Categoría</th>
+                    <th th:text="#{player.category}">Eliminar</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -69,7 +71,7 @@
                     </td>
                     <td>
                         <!-- Botón Eliminar -->
-                        <form th:action="@{|/web/jugadores/delete/${j.id.value}|}" method="post" th:object="${j}"
+                        <form th:action="@{|/web/jugadores/borrar/${j.id.value}|}" method="post" th:object="${j}"
                             style="display:inline;">
                             <button type="submit" class="action-card" style="background-color:#ff4d4d; color:#fff;"
                                 onclick="return confirm('¿Estás seguro de que quieres eliminar este jugador?');">

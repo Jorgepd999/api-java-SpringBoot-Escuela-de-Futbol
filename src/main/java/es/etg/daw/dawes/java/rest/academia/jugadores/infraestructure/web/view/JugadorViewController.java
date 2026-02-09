@@ -1,20 +1,20 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.view;
 
+import java.io.OutputStream;
 import java.util.List;
 import java.util.Locale;
-import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.LocaleResolver;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
-import org.springframework.ui.Model;
 
-import java.io.OutputStream;
 import com.openhtmltopdf.pdfboxout.PdfRendererBuilder;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador.CreateJugadorCommand;
@@ -26,12 +26,12 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.Cate
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.CategoriaId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.constants.WebRoutes;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums.ModelAttribute;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums.ThymView;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.constants.WebRoutes;
 
 @Controller
 @RequiredArgsConstructor
@@ -91,6 +91,7 @@ public class JugadorViewController {
         return ThymView.JUGADOR_CREATED.getPath();
     }
 
+    // Vista: listado para borrar
     @GetMapping(WebRoutes.JUGADOR_BORRAR)
     public String listJugadoresBorrar(Model model) {
 
@@ -104,8 +105,16 @@ public class JugadorViewController {
 
         return ThymView.JUGADOR_DELETE.getPath();
     }
-    
-    
+
+    // Acción real de borrado
+    @PostMapping(WebRoutes.JUGADOR_BORRAR_ID)
+    public String borrarJugador(@PathVariable Integer id) {
+
+        deleteJugadorUseService.delete(new JugadorId(id));
+
+        return "redirect:/web/jugadores/borrar";
+    }
+
     // Listado de Jugadores http://localhost:8080/web/jugadores/pdf
     @GetMapping(WebRoutes.JUGADORES_PDF)
     public void exportarPDF(HttpServletRequest request,

@@ -42,14 +42,10 @@
     </a>
 
     <!-- Eliminar jugador -->
-    <form th:action="@{/web/jugadores/eliminar(lang=${param.lang} ?: 'es')}" method="post" 
-          onsubmit="return confirm('¿Estás seguro de que quieres eliminar este jugador?');" 
-          style="display:inline;">
-        <button type="submit" class="card" style="border:none; background:white;">
-            <div class="icon">🗑</div>
-            <span th:text="#{generico.boton.eliminar}">Eliminar jugador</span>
-        </button>
-    </form>
+      <a th:href="@{/web/jugadores/borrar(lang=${param.lang} ?: 'es')}" class="card">
+        <div class="icon">📄</div>
+        <span th:text="#{generico.enlace.exportar.pdf}">Eliminar Jugador</span>
+    </a>
 
 </main>
 
