@@ -1,44 +1,60 @@
 package es.etg.daw.dawes.java.rest.academia.common.infraestructure.web.error.config;
 
+import java.util.Locale;
+
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
-import java.util.Locale;
-
 @Configuration
 public class LanguageConfig implements WebMvcConfigurer {
 
-    public static final String IDIOMA = "es";
-    public static final String PARAMETRO = "lang";
+    public static final String DEFAULT_LANGUAGE = "es";
+    public static final String PARAM_LANGUAGE = "lang";
 
     /**
-     * Define dónde se guardará el idioma seleccionado.
-     * SessionLocaleResolver lo guarda en la sesión del usuario.
+     * Locale por defecto guardado en la sesión.
      */
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.forLanguageTag(IDIOMA)); // Idioma por defecto
+        slr.setDefaultLocale(Locale.forLanguageTag(DEFAULT_LANGUAGE));
         return slr;
     }
 
     /**
-     * Interceptor que detecta el parámetro en la URL (ej: ?lang=en)
+     * Interceptor que cambia el idioma con ?lang=xx en la URL.
      */
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
-        lci.setParamName(PARAMETRO); // El nombre del parámetro en la URL
+        lci.setParamName(PARAM_LANGUAGE);
         return lci;
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(localeChangeInterceptor());
+    }
+
+    /**
+     * Configura el MessageSource para Thymeleaf y Spring Validation.
+     * messages.properties -> español por defecto
+     * messages_en.properties -> inglés
+     * messages_jp.properties -> japonés
+     */
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:messages"); // sin _es ni _en
+        messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setUseCodeAsDefaultMessage(true); // si no encuentra la clave, devuelve la clave
+        return messageSource;
     }
 }

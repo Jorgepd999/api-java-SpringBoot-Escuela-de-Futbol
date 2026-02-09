@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{player.list.page.title}">Gestión de Jugadores</title>
+    <title th:text="#{jugador.lista.titulo_pagina}">Gestión de Jugadores</title>
 
     <!-- CSS común -->
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
@@ -11,7 +11,7 @@
 <body>
 
 <header>
-    <h1 th:text="#{player.list.title}">Gestión de Jugadores</h1>
+    <h1 th:text="#{jugador.lista.titulo}">Gestión de Jugadores</h1>
 
     <!-- Selector de idiomas -->
     <div class="language-selector">
@@ -26,28 +26,28 @@
     <!-- Crear jugador -->
     <a th:href="@{/web/jugadores/nuevo(lang=${param.lang} ?: 'es')}" class="card">
         <div class="icon">➕</div>
-        <span th:text="#{generic.link.create}">Crear jugador</span>
+        <span th:text="#{generico.enlace.crear}">Crear jugador</span>
     </a>
 
     <!-- Listar jugadores -->
     <a th:href="@{/web/jugadores/lista(lang=${param.lang} ?: 'es')}" class="card">
         <div class="icon">📋</div>
-        <span th:text="#{generic.link.view-list}">Listar jugadores</span>
+        <span th:text="#{generico.enlace.ver_lista}">Listar jugadores</span>
     </a>
 
     <!-- Exportar PDF -->
     <a th:href="@{/web/jugadores/pdf(lang=${param.lang} ?: 'es')}" class="card">
         <div class="icon">📄</div>
-        <span th:text="#{generic.link.export.pdf}">Exportar a PDF</span>
+        <span th:text="#{generico.enlace.exportar.pdf}">Exportar a PDF</span>
     </a>
 
     <!-- Eliminar jugador -->
-    <form th:action="@{/web/jugadores/delete(lang=${param.lang} ?: 'es')}" method="post" 
+    <form th:action="@{/web/jugadores/eliminar(lang=${param.lang} ?: 'es')}" method="post" 
           onsubmit="return confirm('¿Estás seguro de que quieres eliminar este jugador?');" 
           style="display:inline;">
         <button type="submit" class="card" style="border:none; background:white;">
             <div class="icon">🗑</div>
-            <span th:text="#{generic.button.delete}">Eliminar jugador</span>
+            <span th:text="#{generico.boton.eliminar}">Eliminar jugador</span>
         </button>
     </form>
 
