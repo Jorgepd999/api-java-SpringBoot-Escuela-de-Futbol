@@ -19,7 +19,7 @@ public enum ThymView {
     JUGADORES_CREADO("jugadores-creado"),
 
     // --- PDF ---
-    JUGADORES_PDF("jugadores-listaPDF");
+    JUGADORES_PDF("pdf/jugadores-listaPDF");
 
     private final String path;
 
