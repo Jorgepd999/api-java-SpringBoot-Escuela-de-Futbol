@@ -92,7 +92,7 @@ public class JugadorController {
                 .map(JugadorMapper::toResponse)
                 .toList();
     }
-    @Operation(summary = "Objetener jugador por id", description = "Busca en la base de datos y devuelve el jugador por id")
+    @Operation(summary = "Obtiene jugador por id", description = "Busca en la base de datos y devuelve el jugador por id")
     @GetMapping("/{id}")
     public JugadorResponse findJugadorById(@PathVariable int id) {
 
@@ -105,7 +105,7 @@ public class JugadorController {
 
         return JugadorMapper.toResponse(jugador);
     }
-    @Operation(summary = "Eliminar jugador por id", description = "Busca en la base de datos y elimina el jugador por id")
+    @Operation(summary = "Elimina jugador por id", description = "Busca en la base de datos y elimina el jugador por id")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteJugador(@PathVariable int id) {
 
@@ -114,7 +114,7 @@ public class JugadorController {
         deleteJugadorUseService.delete(new JugadorId(id));
         return ResponseEntity.noContent().build();
     }
-    @Operation(summary = "Editar jugador por id", description = "Busca en la base de datos y edita el jugador por id")
+    @Operation(summary = "Edita jugador por id", description = "Busca en la base de datos y edita el jugador por id")
     @PutMapping("/{id}")
     public JugadorResponse editJugador(
             @PathVariable int id,
