@@ -9,52 +9,55 @@
 
 <body>
 
-<header>
-    <h1>Modificar Jugadores</h1>
-</header>
+    <header>
+        <h1>Modificar Jugadores</h1>
+    </header>
 
-<main>
+    <main>
 
-    <div class="actions">
-        <a th:href="@{/web/jugadores/nuevo}">Crear jugador</a>
-        <a th:href="@{/web/menu}">Volver al menú</a>
-    </div>
+        <div class="actions">
+            <a th:href="@{/web/jugadores/nuevo}" class="action-card">Crear jugador</a>
+            <a th:href="@{/web/menu}" class="action-card">Volver al menú</a>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Pierna Hábil</th>
-                <th>Email</th>
-                <th>Categoría</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="j : ${jugadores}">
-                <td th:text="${j.id.value}"></td>
-                <td th:text="${j.nombre}"></td>
-                <td th:text="${j.apellido}"></td>
-                <td th:text="${j.edad}"></td>
-                <td th:text="${j.piernaHabil}"></td>
-                <td th:text="${j.email}"></td>
-                <td>
-                    <span th:each="c : ${categorias}" 
-                          th:if="${c.id.value == j.categoria.value}" 
-                          th:text="${c.nombre}"></span>
-                </td>
-                <td>
-                    <!-- Botón Editar lleva al formulario de edición -->
-                    <a th:href="@{'/web/jugadores/editar/' + ${j.id.value}}">Editar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Pierna Hábil</th>
+                    <th>Email</th>
+                    <th>Categoría</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="j : ${jugadores}">
+                    <td th:text="${j.id.value}"></td>
+                    <td th:text="${j.nombre}"></td>
+                    <td th:text="${j.apellido}"></td>
+                    <td th:text="${j.edad}"></td>
+                    <td th:text="${j.piernaHabil}"></td>
+                    <td th:text="${j.email}"></td>
+                    <td>
+                        <span th:each="c : ${categorias}" th:if="${c.id.value == j.categoria.value}"
+                            th:text="${c.nombre}"></span>
+                    </td>
+                    <td>
+                        <!-- Botón Editar lleva al formulario de edición -->
+                        <form th:action="@{'/web/jugadores/editar/' + ${j.id.value}}" method="get">
+                            <button type="submit" class="btn btn-edit">Editar</button>
+                        </form>
 
-</main>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
 
 </body>
+
 </html>
