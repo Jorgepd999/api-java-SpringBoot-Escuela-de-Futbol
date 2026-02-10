@@ -41,6 +41,12 @@
         <span th:text="#{generico.enlace.exportar.pdf}">Exportar a PDF</span>
     </a>
 
+     <!-- Editar jugador -->
+      <a th:href="@{/web/jugadores/modificar(lang=${param.lang} ?: 'es')}" class="card">
+        <div class="icon">🗑</div>
+        <span th:text="#{generico.boton.eliminar}">Editar Jugador</span>
+    </a>
+
     <!-- Eliminar jugador -->
       <a th:href="@{/web/jugadores/borrar(lang=${param.lang} ?: 'es')}" class="card">
         <div class="icon">🗑</div>

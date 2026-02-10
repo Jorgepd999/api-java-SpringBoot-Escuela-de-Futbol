@@ -3,22 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Jugadores</title>
+    <title>Eliminar Jugadores</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
 
 <body>
 
 <header>
-    <h1>Listado de Jugadores</h1>
+    <h1>Eliminar Jugadores</h1>
 </header>
 
 <main>
 
     <div class="actions">
-        <a th:href="@{/web/jugadores/nuevo}">Crear jugador</a>
+        <a th:href="@{/web/jugadores/listar}">Volver al listado</a>
         <a th:href="@{/web/menu}">Volver al menú</a>
-        <a th:href="@{/web/jugadores/pdf}">Exportar a PDF</a>
     </div>
 
     <table>
@@ -27,10 +26,7 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>Edad</th>
-                <th>Pierna Hábil</th>
-                <th>Email</th>
-                <th>Categoría</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -38,13 +34,10 @@
                 <td th:text="${j.id.value}"></td>
                 <td th:text="${j.nombre}"></td>
                 <td th:text="${j.apellido}"></td>
-                <td th:text="${j.edad}"></td>
-                <td th:text="${j.piernaHabil}"></td>
-                <td th:text="${j.email}"></td>
                 <td>
-                    <span th:each="c : ${categorias}" 
-                          th:if="${c.id.value == j.categoria.value}" 
-                          th:text="${c.nombre}"></span>
+                    <form th:action="@{'/web/jugadores/borrar/' + ${j.id.value}}" method="post" style="display:inline">
+                        <button type="submit" onclick="return confirm('¿Seguro que quieres borrar este jugador?')">Borrar</button>
+                    </form>
                 </td>
             </tr>
         </tbody>

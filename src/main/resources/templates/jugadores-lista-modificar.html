@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listado de Jugadores</title>
+    <title>Modificar Jugadores</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
 </head>
 
 <body>
 
 <header>
-    <h1>Listado de Jugadores</h1>
+    <h1>Modificar Jugadores</h1>
 </header>
 
 <main>
@@ -18,7 +18,6 @@
     <div class="actions">
         <a th:href="@{/web/jugadores/nuevo}">Crear jugador</a>
         <a th:href="@{/web/menu}">Volver al menú</a>
-        <a th:href="@{/web/jugadores/pdf}">Exportar a PDF</a>
     </div>
 
     <table>
@@ -31,6 +30,7 @@
                 <th>Pierna Hábil</th>
                 <th>Email</th>
                 <th>Categoría</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -45,6 +45,10 @@
                     <span th:each="c : ${categorias}" 
                           th:if="${c.id.value == j.categoria.value}" 
                           th:text="${c.nombre}"></span>
+                </td>
+                <td>
+                    <!-- Botón Editar lleva al formulario de edición -->
+                    <a th:href="@{'/web/jugadores/editar/' + ${j.id.value}}">Editar</a>
                 </td>
             </tr>
         </tbody>

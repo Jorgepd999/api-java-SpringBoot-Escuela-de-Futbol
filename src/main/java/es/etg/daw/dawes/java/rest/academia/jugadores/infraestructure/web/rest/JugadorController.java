@@ -64,7 +64,6 @@ public class JugadorController {
         }
     }
 
-
     @PostMapping
     public ResponseEntity<JugadorResponse> createJugador(
             @Valid @RequestBody JugadorRequest jugadorRequest) {
@@ -78,7 +77,7 @@ public class JugadorController {
                 .body(JugadorMapper.toResponse(jugador));
     }
 
-      @Operation(summary = "Obtiene el listado de jugadores", description = "Busca en la base de datos todos los jugadores y sus detalles")
+    @Operation(summary = "Obtiene el listado de jugadores", description = "Busca en la base de datos todos los jugadores y sus detalles")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Listado de jugadores generado"),
             @ApiResponse(responseCode = "404", description = "No hay jugadores en la base de datos")
@@ -91,6 +90,19 @@ public class JugadorController {
                 .stream()
                 .map(JugadorMapper::toResponse)
                 .toList();
+    }
+
+    @GetMapping("/{id}")
+    public JugadorResponse findJugadorById(@PathVariable int id) {
+
+        checkApiVersion(); // Validación interna
+
+        Jugador jugador = findJugadorUseService.getById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Jugador no encontrado con id: " + id));
+
+        return JugadorMapper.toResponse(jugador);
     }
 
     @DeleteMapping("/{id}")
@@ -114,8 +126,6 @@ public class JugadorController {
 
         return JugadorMapper.toResponse(jugador);
     }
-
-    
 
     // Captura errores de validación
     @ResponseStatus(HttpStatus.BAD_REQUEST)

@@ -21,7 +21,7 @@ public class FindJugadorUseService {
     }
 
     // Nuevo método para buscar un jugador por ID
-    public Optional<Jugador> findById(Integer id) {
-        return findJugadorUseCase.findById(new JugadorId(id));
+    public Optional<Jugador> getById(Integer id) {
+        return findJugadorUseCase.getById(new JugadorId(id));
     }
 }

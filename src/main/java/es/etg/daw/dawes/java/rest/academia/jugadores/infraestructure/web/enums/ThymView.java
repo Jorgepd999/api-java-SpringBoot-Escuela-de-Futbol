@@ -1,19 +1,25 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.enums;
 
 /**
- * Contiene el listado de plantillas Thymeleaf
+ * Enum con las rutas a las plantillas Thymeleaf para los jugadores.
  */
 public enum ThymView {
 
-    JUGADOR_HOME("jugadores-home"),
-    JUGADOR_LIST("jugadores-lista"),
-    JUGADOR_DELETE("jugador-borrar"),
-    JUGADOR_UPDATE("jugadores-editar"),
-    JUGADOR_LIST_PDF("pdf/jugadores-listaPDF"),
-    JUGADOR_FORM("jugador-formulario"),
-    JUGADOR_CREATED("jugador-creado"),
-    JUGADOR_DETAIL("jugadores-detalle"),
-    ERROR_GENERIC("error/error-general");
+    // --- Home ---
+    JUGADORES_HOME("jugadores-home"),
+
+    // --- Listados ---
+    JUGADORES_LISTA("jugadores-lista"),
+    JUGADORES_LISTA_PARA_BORRAR("jugadores-lista-borrar"),
+    JUGADORES_LISTA_PARA_MODIFICAR("jugadores-lista-modificar"),
+
+    // --- Formularios ---
+    JUGADORES_FORMULARIO_NUEVO("jugadores-formulario-nuevo"),
+    JUGADORES_FORMULARIO_EDITAR("jugadores-formulario-editar"),
+    JUGADORES_CREADO("jugadores-creado"),
+
+    // --- PDF ---
+    JUGADORES_PDF("jugadores-listaPDF");
 
     private final String path;
 
