@@ -20,6 +20,7 @@ public record JugadorRequest(
     )
     @NotBlank(message = "{jugador.valid.nombre.no_vacio}")
     @NombradoJugador(message = "{jugador.valid.nombre.formato}")
+    
     String nombre,
 
     // ===== Apellido =====
@@ -30,6 +31,8 @@ public record JugadorRequest(
     )
     @NotBlank(message = "{jugador.valid.apellido.no_vacio}")
     @NombradoJugador(message = "{jugador.valid.apellido.formato}")
+   
+
     String apellido,
 
     // ===== Edad =====
