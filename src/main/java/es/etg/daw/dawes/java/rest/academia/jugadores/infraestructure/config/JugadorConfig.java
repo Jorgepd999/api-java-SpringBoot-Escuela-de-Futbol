@@ -12,17 +12,23 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.EditJugadorUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador.FindJugadorUseCase;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.jpa.repository.jugador.JugadorEntityJpaRepository;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.jpa.repository.jugador.JugadorJpaRepositoryImpl;
 import lombok.RequiredArgsConstructor;
 
 @Configuration
 @RequiredArgsConstructor
 public class JugadorConfig {
 
-    private final JugadorRepository jugadorRepository;
+    private final JugadorEntityJpaRepository jugadorRepository;
+
+    public JugadorRepository jugadorRepository(){
+        return new JugadorJpaRepositoryImpl(jugadorRepository);
+    }
     //Metodo POST
     @Bean
     public CreateJugadorUseCase createJugadorUseCase(){
-        return new CreateJugadorUseCase(jugadorRepository);
+        return new CreateJugadorUseCase(jugadorRepository());
     }
   //Metodo POST
     @Bean
@@ -32,7 +38,7 @@ public class JugadorConfig {
     //Metodo GET
      @Bean
     public FindJugadorUseCase findJugadorUseCase(){
-        return new FindJugadorUseCase(jugadorRepository);
+        return new FindJugadorUseCase(jugadorRepository());
     }
     //Metodo GET
     @Bean
@@ -43,7 +49,7 @@ public class JugadorConfig {
     @Bean
     //Metodo DELETE
     public DeleteJugadorUseCase deleteJugadorUseCase(){
-        return new DeleteJugadorUseCase(jugadorRepository);
+        return new DeleteJugadorUseCase(jugadorRepository());
     }
     //Metodo DELETE
     @Bean
@@ -53,7 +59,7 @@ public class JugadorConfig {
     //Metodo PUT
     @Bean
     public EditJugadorUseCase editJugadorUseCase(){
-        return new EditJugadorUseCase(jugadorRepository);
+        return new EditJugadorUseCase(jugadorRepository());
     }
     //Metodo PUT
     @Bean 

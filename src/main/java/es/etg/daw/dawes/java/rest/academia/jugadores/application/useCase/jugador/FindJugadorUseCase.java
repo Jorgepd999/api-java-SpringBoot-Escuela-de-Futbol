@@ -1,11 +1,11 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.application.useCase.jugador;
 
 import java.util.List;
-
-
+import java.util.Optional;
 
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.error.JugadorNotFoundException;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.repository.JugadorRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -23,5 +23,8 @@ public class FindJugadorUseCase {
 
         return jugadores;
     }
-}
 
+    public Optional<Jugador> getById(JugadorId id) {
+        return jugadorRepository.getById(id);
+    }
+}

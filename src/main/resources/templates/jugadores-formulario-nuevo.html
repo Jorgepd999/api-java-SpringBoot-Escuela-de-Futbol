@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{jugador.formulario.titulo_pagina}">Crear Jugador</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+
+<body>
+
+<header>
+    <h1 th:text="#{jugador.formulario.titulo}">CREAR JUGADOR</h1>
+
+    <div class="language-selector">
+        <a th:href="@{/web/jugadores/nuevo(lang='es')}">🇪🇸</a>
+        <a th:href="@{/web/jugadores/nuevo(lang='en')}">🇬🇧</a>
+        <a th:href="@{/web/jugadores/nuevo(lang='jp')}">🇯🇵</a>
+    </div>
+</header>
+
+<main class="cards-container">
+
+    <div class="table-container" style="padding: 30px; max-width: 600px; margin: auto;">
+        <form th:action="@{/web/jugadores/nuevo}" th:object="${jugador}" method="POST">
+
+            <div class="form-group">
+                <label th:text="#{jugador.formulario.etiqueta.nombre}">Nombre:</label>
+                <input type="text" th:field="*{nombre}" required minlength="3"
+                       pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+"
+                       title="Mínimo 3 letras. No se permiten números">
+            </div>
+
+            <div class="form-group">
+                <label th:text="#{jugador.formulario.etiqueta.apellido}">Apellido:</label>
+                <input type="text" th:field="*{apellido}" required>
+            </div>
+
+            <div class="form-group">
+                <label th:text="#{jugador.formulario.etiqueta.edad}">Edad:</label>
+                <input type="number" th:field="*{edad}" min="5" required>
+            </div>
+
+            <div class="form-group">
+                <label th:text="#{jugador.formulario.etiquetapierna_habil}">Pierna hábil:</label>
+                <select th:field="*{piernaHabil}" required>
+                    <option value="">-- Selecciona --</option>
+                    <option value="Derecha">Derecha</option>
+                    <option value="Izquierda">Izquierda</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label th:text="#{jugador.formulario.etiqueta.email}">Email:</label>
+                <input type="email" th:field="*{email}" required>
+            </div>
+
+            <div class="form-group">
+                <label th:text="#{jugador.formulario.etiqueta.categoria}">Categoría:</label>
+                <select th:field="*{categoria}" required>
+                    <option value="">-- Selecciona una categoría --</option>
+                    <option th:each="c : ${categorias}" th:value="${c.id.value}" th:text="${c.nombre}"></option>
+                </select>
+            </div>
+
+            <div class="actions" style="margin-top: 20px;">
+                <button type="submit" class="action-card" th:text="#{generico.boton.guardar}">Guardar Jugador</button>
+                <a th:href="@{/web/menu}" class="action-card" style="background-color:#f0f0f0; color:#1e293b;"
+                   th:text="#{generico.enlace.volver}">Volver</a>
+            </div>
+
+        </form>
+    </div>
+
+</main>
+
+</body>
+</html>

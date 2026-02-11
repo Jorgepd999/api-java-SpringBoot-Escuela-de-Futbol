@@ -32,12 +32,17 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugado
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.mapper.JugadorMapper;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorRequest;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorResponse;
-import jakarta.validation.Valid; 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/jugadores")
 @RequiredArgsConstructor
+@Tag(name = "Jugadores", description = "Operaciones relacionadas con la gestión de jugadores")
 public class JugadorController {
 
     private final CreateJugadorUseService createJugadorUseService;
@@ -48,17 +53,19 @@ public class JugadorController {
     // Recuperamos la versión desde el properties
     @Value("${api.version}")
     private String apiVersion;
-    // MÉTODO DE VALIDACIÓN, comprueba la version de la API, si es distinta da error.
+
+    // MÉTODO DE VALIDACIÓN, comprueba la version de la API, si es distinta da
+    // error.
     private void checkApiVersion() {
         if (!"1.0".equals(apiVersion)) {
             throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST,
-                "Versión del API incorrecta: " + apiVersion
-            );
+                    HttpStatus.BAD_REQUEST,
+                    "Versión del API incorrecta: " + apiVersion);
         }
     }
-
-    @PostMapping 
+    
+    @Operation(summary = "Creacion de jugador", description = "Le enviamos datos y creamos jugador")
+    @PostMapping
     public ResponseEntity<JugadorResponse> createJugador(
             @Valid @RequestBody JugadorRequest jugadorRequest) {
 
@@ -68,9 +75,14 @@ public class JugadorController {
         Jugador jugador = createJugadorUseService.createJugador(comando);
 
         return ResponseEntity.status(HttpStatus.CREATED)
-                             .body(JugadorMapper.toResponse(jugador));
+                .body(JugadorMapper.toResponse(jugador));
     }
 
+    @Operation(summary = "Obtiene el listado de jugadores", description = "Busca en la base de datos todos los jugadores y sus detalles")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Listado de jugadores generado"),
+            @ApiResponse(responseCode = "404", description = "No hay jugadores en la base de datos")
+    })
     @GetMapping
     public List<JugadorResponse> allJugadores() {
         checkApiVersion(); // Validación interna
@@ -80,23 +92,36 @@ public class JugadorController {
                 .map(JugadorMapper::toResponse)
                 .toList();
     }
- 
+    @Operation(summary = "Obtiene jugador por id", description = "Busca en la base de datos y devuelve el jugador por id")
+    @GetMapping("/{id}")
+    public JugadorResponse findJugadorById(@PathVariable int id) {
+
+        checkApiVersion(); // Validación interna
+
+        Jugador jugador = findJugadorUseService.getById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Jugador no encontrado con id: " + id));
+
+        return JugadorMapper.toResponse(jugador);
+    }
+    @Operation(summary = "Elimina jugador por id", description = "Busca en la base de datos y elimina el jugador por id")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteJugador(@PathVariable int id) {
 
         checkApiVersion(); // Validación interna
-        
+
         deleteJugadorUseService.delete(new JugadorId(id));
         return ResponseEntity.noContent().build();
     }
-
+    @Operation(summary = "Edita jugador por id", description = "Busca en la base de datos y edita el jugador por id")
     @PutMapping("/{id}")
     public JugadorResponse editJugador(
             @PathVariable int id,
             @RequestBody JugadorRequest jugadorRequest) {
 
         checkApiVersion(); // Validación interna
-        
+
         EditJugadorCommand comando = JugadorMapper.toCommand(id, jugadorRequest);
         Jugador jugador = editJugadorUseService.update(comando);
 
@@ -116,4 +141,3 @@ public class JugadorController {
         return errors;
     }
 }
-

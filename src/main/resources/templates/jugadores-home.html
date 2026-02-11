@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{jugador.lista.titulo_pagina}">Gestión de Jugadores</title>
+
+    <!-- CSS común -->
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+
+<body>
+
+<header>
+    <h1 th:text="#{jugador.lista.titulo}">Gestión de Jugadores</h1>
+
+    <!-- Selector de idiomas -->
+    <div class="language-selector">
+        <a th:href="@{/web/menu(lang='es')}">🇪🇸</a>
+        <a th:href="@{/web/menu(lang='en')}">🇬🇧</a>
+        <a th:href="@{/web/menu(lang='jp')}">🇯🇵</a>
+    </div>
+</header>
+
+<main class="cards-container">
+
+    <!-- Crear jugador -->
+    <a th:href="@{/web/jugadores/nuevo(lang=${param.lang} ?: 'es')}" class="card">
+        <div class="icon">➕</div>
+        <span th:text="#{generico.enlace.crear}">Crear jugador</span>
+    </a>
+
+    <!-- Listar jugadores -->
+    <a th:href="@{/web/jugadores/lista(lang=${param.lang} ?: 'es')}" class="card">
+        <div class="icon">📋</div>
+        <span th:text="#{generico.enlace.ver_lista}">Listar jugadores</span>
+    </a>
+
+    <!-- Exportar PDF -->
+    <a th:href="@{/web/jugadores/pdf(lang=${param.lang} ?: 'es')}" class="card">
+        <div class="icon">📄</div>
+        <span th:text="#{generico.enlace.exportar.pdf}">Exportar a PDF</span>
+    </a>
+
+     <!-- Editar jugador -->
+      <a th:href="@{/web/jugadores/modificar(lang=${param.lang} ?: 'es')}" class="card">
+        <div class="icon">✏️</div>
+        <span th:text="#{generico.boton.editar}">Editar Jugador</span>
+    </a>
+
+    <!-- Eliminar jugador -->
+      <a th:href="@{/web/jugadores/borrar(lang=${param.lang} ?: 'es')}" class="card">
+        <div class="icon">🗑</div>
+        <span th:text="#{generico.boton.eliminar}">Eliminar Jugador</span>
+    </a>
+
+</main>
+
+</body>
+</html>

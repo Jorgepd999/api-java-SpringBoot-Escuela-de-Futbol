@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{jugador.confirmacion.titulo_pagina}">Nuevo Jugador</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+</head>
+
+<body>
+
+<header>
+    <h1 th:text="#{retroalimentacion.exito.creado(#{jugador.nombre.singular})}">
+        El jugador se ha creado correctamente
+    </h1>
+
+    <div class="language-selector">
+        <a th:href="@{/web/jugadores/nuevo(lang='es')}">🇪🇸</a>
+        <a th:href="@{/web/jugadores/nuevo(lang='en')}">🇬🇧</a>
+        <a th:href="@{/web/jugadores/nuevo(lang='jp')}">🇯🇵</a>
+    </div>
+</header>
+
+<main class="cards-container">
+
+    <div class="table-container" style="padding: 30px; max-width: 800px; margin: auto; text-align: center;">
+
+        <div class="actions" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+
+            <a th:href="@{/web/jugadores/nuevo}" class="action-card" style="flex: 1 1 200px;" th:text="#{generico.enlace.crear}">
+                ➕ Crear Nuevo Jugador
+            </a>
+
+            <a th:href="@{/web/menu}" class="action-card" style="flex: 1 1 200px;" th:text="#{generico.enlace.volver}">
+                🏠 Volver al Menú
+            </a>
+
+            <a th:href="@{/web/jugadores/pdf}" class="action-card" style="flex: 1 1 200px;" th:text="#{generico.enlace.exportar.pdf}">
+                📄 Exportar a PDF
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

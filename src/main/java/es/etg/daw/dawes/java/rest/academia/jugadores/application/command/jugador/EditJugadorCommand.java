@@ -15,5 +15,4 @@ public class EditJugadorCommand {
     private final int edad;
     private final String piernaHabil;
     private final String email;
-    
 }

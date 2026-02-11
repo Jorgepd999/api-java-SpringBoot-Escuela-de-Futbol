@@ -1,5 +1,6 @@
 package es.etg.daw.dawes.java.rest.academia.jugadores.application.command.jugador;
 
+import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.categoria.CategoriaId;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.Accessors;
@@ -14,5 +15,6 @@ public class CreateJugadorCommand {
     private final int edad;
     private final String piernaHabil;
     private final String email;
+    private final CategoriaId categoriaId;
     
 }
