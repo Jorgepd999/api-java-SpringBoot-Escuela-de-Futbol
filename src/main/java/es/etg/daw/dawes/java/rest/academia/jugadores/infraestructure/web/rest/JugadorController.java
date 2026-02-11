@@ -30,8 +30,8 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.application.service.jugador
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugador;
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.mapper.JugadorMapper;
-import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorRequest;
-import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorResponse;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.jugador.JugadorRequest;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.jugador.JugadorResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -63,8 +63,10 @@ public class JugadorController {
                     "Versión del API incorrecta: " + apiVersion);
         }
     }
-    
-    @Operation(summary = "Creacion de jugador", description = "Le enviamos datos y creamos jugador")
+
+    @Operation(summary = "Crear jugador", description = "Recibe los datos de un jugador y lo almacena en la base de datos")
+    @ApiResponse(responseCode = "201", description = "Jugador creado correctamente")
+    @ApiResponse(responseCode = "400", description = "Error de validación en los datos enviados")
     @PostMapping
     public ResponseEntity<JugadorResponse> createJugador(
             @Valid @RequestBody JugadorRequest jugadorRequest) {
@@ -78,11 +80,9 @@ public class JugadorController {
                 .body(JugadorMapper.toResponse(jugador));
     }
 
-    @Operation(summary = "Obtiene el listado de jugadores", description = "Busca en la base de datos todos los jugadores y sus detalles")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Listado de jugadores generado"),
-            @ApiResponse(responseCode = "404", description = "No hay jugadores en la base de datos")
-    })
+    @Operation(summary = "Obtener todos los jugadores", description = "Devuelve el listado completo de jugadores registrados")
+    @ApiResponse(responseCode = "200", description = "Listado generado correctamente")
+
     @GetMapping
     public List<JugadorResponse> allJugadores() {
         checkApiVersion(); // Validación interna
@@ -92,7 +92,10 @@ public class JugadorController {
                 .map(JugadorMapper::toResponse)
                 .toList();
     }
-    @Operation(summary = "Obtiene jugador por id", description = "Busca en la base de datos y devuelve el jugador por id")
+
+    @Operation(summary = "Obtener jugador por ID", description = "Busca un jugador concreto en la base de datos por su identificador")
+    @ApiResponse(responseCode = "200", description = "Jugador encontrado")
+    @ApiResponse(responseCode = "404", description = "Jugador no encontrado")
     @GetMapping("/{id}")
     public JugadorResponse findJugadorById(@PathVariable int id) {
 
@@ -105,7 +108,10 @@ public class JugadorController {
 
         return JugadorMapper.toResponse(jugador);
     }
-    @Operation(summary = "Elimina jugador por id", description = "Busca en la base de datos y elimina el jugador por id")
+
+    @Operation(summary = "Eliminar jugador", description = "Elimina un jugador de la base de datos por su ID")
+    @ApiResponse(responseCode = "204", description = "Jugador eliminado correctamente")
+    @ApiResponse(responseCode = "404", description = "Jugador no encontrado")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteJugador(@PathVariable int id) {
 
@@ -114,7 +120,10 @@ public class JugadorController {
         deleteJugadorUseService.delete(new JugadorId(id));
         return ResponseEntity.noContent().build();
     }
-    @Operation(summary = "Edita jugador por id", description = "Busca en la base de datos y edita el jugador por id")
+
+    @Operation(summary = "Actualizar jugador", description = "Modifica los datos de un jugador existente")
+    @ApiResponse(responseCode = "200", description = "Jugador actualizado correctamente")
+    @ApiResponse(responseCode = "404", description = "Jugador no encontrado")
     @PutMapping("/{id}")
     public JugadorResponse editJugador(
             @PathVariable int id,
