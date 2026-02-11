@@ -28,7 +28,8 @@
 
     <main class="cards-container">
         <div class="table-container" style="padding: 30px; max-width: 600px; margin: auto;">
-            <form id="crearJugadorForm" th:action="@{/web/jugadores/nuevo}" th:object="${jugador}" method="POST" novalidate>
+            <form id="crearJugadorForm" th:action="@{/web/jugadores/nuevo}" th:object="${jugador}" method="POST"
+                novalidate>
 
                 <!-- Nombre -->
                 <div class="form-group">
@@ -84,14 +85,15 @@
                 <div class="actions" style="margin-top: 20px;">
                     <button type="submit" class="action-card" th:text="#{generico.boton.guardar}">Guardar
                         Jugador</button>
-                    <a th:href="@{/web/menu}" class="action-card" style="background-color:#f0f0f0; color:#1e293b;"
-                        th:text="#{generico.enlace.volver}">Volver</a>
+                    <a th:href="@{/web/menu(lang=${param.lang})}" class="action-card"
+                        style="background-color:#f0f0f0; color:#1e293b;" th:text="#{generico.enlace.volver}">Volver</a>
                 </div>
+
 
             </form>
         </div>
     </main>
-    
+
     <script th:src="@{/js/validacion-jugador.js}"></script>
 
 

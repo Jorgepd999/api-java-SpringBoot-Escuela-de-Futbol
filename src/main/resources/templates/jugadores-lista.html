@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${param.lang ?: 'es'}">
 
 <head>
     <meta charset="UTF-8">
@@ -9,48 +9,54 @@
 
 <body>
 
-<header>
-    <h1>Listado de Jugadores</h1>
-</header>
+    <header>
+        <h1>Listado de Jugadores</h1>
+        <!-- Selector de idiomas -->
+        <div class="language-selector">
+            <a th:href="@{/web/jugadores/lista(lang='es')}">🇪🇸</a>
+            <a th:href="@{/web/jugadores/lista(lang='en')}">🇬🇧</a>
+            <a th:href="@{/web/jugadores/lista(lang='jp')}">🇯🇵</a>
+        </div>
+    </header>
 
-<main>
+    <main>
 
-    <div class="actions">
-        <a th:href="@{/web/jugadores/nuevo}" class="action-card">Crear jugador</a>
-        <a th:href="@{/web/menu}" class="action-card">Volver al menú</a>
-        <a th:href="@{/web/jugadores/pdf}" class="action-card">Exportar a PDF</a>
-    </div>
+        <div class="actions">
+            <a th:href="@{/web/jugadores/nuevo}" class="action-card">Crear jugador</a>
+            <a th:href="@{/web/menu(lang=${param.lang})}" class="action-card">Volver al menú</a>
+            <a th:href="@{/web/jugadores/pdf}" class="action-card">Exportar a PDF</a>
+        </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Pierna Hábil</th>
-                <th>Email</th>
-                <th>Categoría</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="j : ${jugadores}">
-                <td th:text="${j.id.value}"></td>
-                <td th:text="${j.nombre}"></td>
-                <td th:text="${j.apellido}"></td>
-                <td th:text="${j.edad}"></td>
-                <td th:text="${j.piernaHabil}"></td>
-                <td th:text="${j.email}"></td>
-                <td>
-                    <span th:each="c : ${categorias}" 
-                          th:if="${c.id.value == j.categoria.value}" 
-                          th:text="${c.nombre}"></span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Pierna Hábil</th>
+                    <th>Email</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="j : ${jugadores}">
+                    <td th:text="${j.id.value}"></td>
+                    <td th:text="${j.nombre}"></td>
+                    <td th:text="${j.apellido}"></td>
+                    <td th:text="${j.edad}"></td>
+                    <td th:text="${j.piernaHabil}"></td>
+                    <td th:text="${j.email}"></td>
+                    <td>
+                        <span th:each="c : ${categorias}" th:if="${c.id.value == j.categoria.value}"
+                            th:text="${c.nombre}"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-</main>
+    </main>
 
 </body>
+
 </html>
