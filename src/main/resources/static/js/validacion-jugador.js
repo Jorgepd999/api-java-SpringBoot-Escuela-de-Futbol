@@ -11,38 +11,38 @@ document.addEventListener('DOMContentLoaded', function () {
         es: {
             nombre: 'El nombre ',
             apellido: 'El apellido ',
-            edad: 'La edad',
-            required: ' es obligatorio',
-            minLength: ' debe tener al menos 3 letras',
-            lettersOnly: ' solo se permiten letras y espacios',
-            edadMin: 'La edad mínima es 5 años',
-            pierna: 'Debes seleccionar una pierna',
-            categoria: 'Debes seleccionar una categoría',
-            email: 'Formato de email inválido'
+            edad: 'La edad ',
+            required: ' es obligatorio ',
+            minLength: ' debe tener al menos 3 letras ',
+            lettersOnly: ' solo se permiten letras y espacios ',
+            edadMin: 'La edad mínima es 5 años ',
+            pierna: 'Debes seleccionar una pierna ',
+            categoria: 'Debes seleccionar una categoría ',
+            email: 'Formato de email inválido '
         },
         en: {
             nombre: 'The name ',
-            apellido: 'The last name',
-            edad: 'The age',
+            apellido: 'The last name ',
+            edad: 'The age ',
             required: 'is required',
-            minLength: 'must be at least 3 letters',
-            lettersOnly: 'only letters and spaces are allowed',
-            edadMin: 'Minimum age is 5 years',
-            pierna: 'You must select a leg',
-            categoria: 'You must select a category',
-            email: 'invalid email format'
+            minLength: 'must be at least 3 letters ',
+            lettersOnly: 'only letters and spaces are allowed ',
+            edadMin: 'Minimum age is 5 years ',
+            pierna: 'You must select a leg ',
+            categoria: 'You must select a category ',
+            email: 'Invalid email format '
         },
         jp: {
-            nombre: '名前',       
-            apellido: '姓',      
-            edad: '年齢' ,      
-            required: 'は必須です',
-            minLength: 'は少なくとも3文字必要です',
-            lettersOnly: 'は文字とスペースのみ使用できます',
-            edadMin: '最低年齢は5歳です',
+            nombre: '名前 ',
+            apellido: '姓 ',
+            edad: '年齢 ',
+            required: 'は必須です ',
+            minLength: 'は少なくとも3文字必要です ',
+            lettersOnly: 'は文字とスペースのみ使用できます ',
+            edadMin: '最低年齢は5歳です ',
             pierna: '利き足を選択してください',
-            categoria: 'カテゴリーを選択してください',
-            email: '無効なメール形式です'
+            categoria: 'カテゴリーを選択してください ',
+            email: '無効なメール形式です '
         }
     };
 

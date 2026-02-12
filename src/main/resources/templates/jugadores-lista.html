@@ -23,7 +23,7 @@
 
         <div class="actions">
             <a th:href="@{/web/jugadores/nuevo}" class="action-card" th:text="#{generico.enlace.crear}">Crear jugador</a>
-            <a th:href="@{/web/menu(lang=${param.lang})}" class="action-card">Volver al menú</a>
+            <a th:href="@{/web/menu(lang=${param.lang})}" class="action-card" th:text="#{volver.menu}">Volver al menú</a>
             <a th:href="@{/web/jugadores/pdf}" class="action-card"  th:text="#{generico.enlace.exportar.pdf}">Exportar a PDF</a>
         </div>
 

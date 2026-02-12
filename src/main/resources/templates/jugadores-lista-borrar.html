@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:lang="${param.lang ?: 'es'}">
+
 <head>
     <meta charset="UTF-8">
     <title>Eliminar Jugadores</title>
@@ -9,7 +10,7 @@
 <body>
 
     <header>
-        <h1 >Eliminar Jugadores</h1>
+        <h1>Eliminar Jugadores</h1>
         <!-- Selector de idiomas -->
         <div class="language-selector">
             <a th:href="@{/web/jugadores/borrar(lang='es')}">🇪🇸</a>
@@ -21,7 +22,12 @@
     <main>
 
         <div class="actions">
-            <a th:href="@{/web/menu}" class="action-card">Volver al menú</a>
+            <a th:href="@{/web/jugadores/nuevo}" class="action-card" th:text="#{generico.enlace.crear}">Crear
+                jugador</a>
+            <a th:href="@{/web/menu(lang=${param.lang})}" class="action-card" th:text="#{volver.menu}">Volver al
+                menú</a>
+            <a th:href="@{/web/jugadores/pdf}" class="action-card" th:text="#{generico.enlace.exportar.pdf}">Exportar a
+                PDF</a>
         </div>
 
         <table>
@@ -34,7 +40,7 @@
                     <th th:text="#{jugador.tabla.cabecera.pierna_habil}">Pierna Hábil</th>
                     <th th:text="#{jugador.tabla.cabecera.email}">Email</th>
                     <th th:text="#{jugador.tabla.cabecera.categoria}">Categoría</th>
-                    <th text="">Acción</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,9 +57,11 @@
                     </td>
                     <td>
                         <form th:action="@{'/web/jugadores/borrar/' + ${j.id.value}}" method="post">
-                            <button type="submit" class="btn btn-delete"
-                                onclick="return confirm('¿Seguro que quieres borrar este jugador?')">Borrar</button>
+                            <button type="submit" class="btn btn-delete" th:text="#{boton.borrar}"
+                                th:onclick="|return confirm('#{confirmar.borrar.jugador}')|">
+                            </button>
                         </form>
+
                     </td>
                 </tr>
             </tbody>
