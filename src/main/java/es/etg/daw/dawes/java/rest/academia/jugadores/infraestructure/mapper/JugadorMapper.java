@@ -10,8 +10,8 @@ import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.Jugado
 import es.etg.daw.dawes.java.rest.academia.jugadores.domain.model.jugador.JugadorId;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.jpa.entity.CategoriaJpaEntity;
 import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.db.jpa.entity.JugadorJpaEntity;
-import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorRequest;
-import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.JugadorResponse;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.jugador.JugadorRequest;
+import es.etg.daw.dawes.java.rest.academia.jugadores.infraestructure.web.dto.jugador.JugadorResponse;
 
 public class JugadorMapper {
 

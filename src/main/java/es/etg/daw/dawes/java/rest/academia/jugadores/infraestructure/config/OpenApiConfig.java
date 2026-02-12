@@ -12,10 +12,12 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-            .info(new Info()
-                .title("API de Gestión de Jugadores academia de fútbol")
-                .version("1.0.0")
-                .description("Documentación detallada de la API para la gestión de jugadores")
-                .contact(new Contact().name("Alumnado").email("daw@etg.es")));
+                .info(new Info()
+                        .title("API de Gestión de Jugadores")
+                        .version("1.0.0")
+                        .description("Documentación de la API REST para la gestión de jugadores de la academia")
+                        .contact(new Contact()
+                                .name("Alumno DAW")
+                                .email("daw@etg.es")));
     }
 }
