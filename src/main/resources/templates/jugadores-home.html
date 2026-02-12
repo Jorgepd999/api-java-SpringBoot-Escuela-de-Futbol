@@ -1,59 +1,85 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" th:lang="${param.lang ?: 'es'}">
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <title th:text="#{jugador.lista.titulo_pagina}">Gestión de Jugadores</title>
-
     <!-- CSS común -->
     <link rel="stylesheet" th:href="@{/css/estilos.css}">
 </head>
 
 <body>
 
-<header>
-    <h1 th:text="#{jugador.lista.titulo}">Gestión de Jugadores</h1>
+    <header>
+        <h1 th:text="#{jugador.lista.titulo}">Gestión de Jugadores</h1>
+        <div class="header-right">
+            <button class="btn btn-login" onclick="toggleLogin()" th:text="#{iniciar.session}">Iniciar sesión</button>
+            <div class="language-selector">
+                <a th:href="@{/web/menu(lang='es')}">🇪🇸</a>
+                <a th:href="@{/web/menu(lang='en')}">🇬🇧</a>
+                <a th:href="@{/web/menu(lang='jp')}">🇯🇵</a>
+            </div>
+        </div>
+    </header>
 
-    <!-- Selector de idiomas -->
-    <div class="language-selector">
-        <a th:href="@{/web/menu(lang='es')}">🇪🇸</a>
-        <a th:href="@{/web/menu(lang='en')}">🇬🇧</a>
-        <a th:href="@{/web/menu(lang='jp')}">🇯🇵</a>
+
+    <main class="cards-container">
+
+        <a th:href="@{/web/jugadores/nuevo(lang=${param.lang} ?: 'es')}" class="card">
+            <div class="icon">➕</div>
+            <span th:text="#{generico.enlace.crear}">Crear jugador</span>
+        </a>
+
+        <a th:href="@{/web/jugadores/lista(lang=${param.lang} ?: 'es')}" class="card">
+            <div class="icon">📋</div>
+            <span th:text="#{generico.enlace.ver_lista}">Listar jugadores</span>
+        </a>
+
+        <a th:href="@{/web/jugadores/pdf(lang=${param.lang} ?: 'es')}" class="card">
+            <div class="icon">📄</div>
+            <span th:text="#{generico.enlace.exportar.pdf}">Exportar a PDF</span>
+        </a>
+
+        <a th:href="@{/web/jugadores/modificar(lang=${param.lang} ?: 'es')}" class="card">
+            <div class="icon">✏️</div>
+            <span th:text="#{generico.boton.editar}">Editar Jugador</span>
+        </a>
+
+        <a th:href="@{/web/jugadores/borrar(lang=${param.lang} ?: 'es')}" class="card">
+            <div class="icon">🗑</div>
+            <span th:text="#{generico.boton.eliminar}">Eliminar Jugador</span>
+        </a>
+
+    </main>
+
+    <!-- POPUP LOGIN -->
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="toggleLogin()">×</span>
+            <h2>Iniciar sesión</h2>
+            <form class="login-form">
+                <input type="text" placeholder="Usuario" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit" class="btn btn-primary">Entrar</button>
+            </form>
+        </div>
     </div>
-</header>
 
-<main class="cards-container">
+    <script>
+        function toggleLogin() {
+            const popup = document.getElementById('loginPopup');
+            popup.classList.toggle('show');
+        }
 
-    <!-- Crear jugador -->
-    <a th:href="@{/web/jugadores/nuevo(lang=${param.lang} ?: 'es')}" class="card">
-        <div class="icon">➕</div>
-        <span th:text="#{generico.enlace.crear}">Crear jugador</span>
-    </a>
-
-    <!-- Listar jugadores -->
-    <a th:href="@{/web/jugadores/lista(lang=${param.lang} ?: 'es')}" class="card">
-        <div class="icon">📋</div>
-        <span th:text="#{generico.enlace.ver_lista}">Listar jugadores</span>
-    </a>
-
-    <!-- Exportar PDF -->
-    <a th:href="@{/web/jugadores/pdf(lang=${param.lang} ?: 'es')}" class="card">
-        <div class="icon">📄</div>
-        <span th:text="#{generico.enlace.exportar.pdf}">Exportar a PDF</span>
-    </a>
-
-     <!-- Editar jugador -->
-      <a th:href="@{/web/jugadores/modificar(lang=${param.lang} ?: 'es')}" class="card">
-        <div class="icon">✏️</div>
-        <span th:text="#{generico.boton.editar}">Editar Jugador</span>
-    </a>
-
-    <!-- Eliminar jugador -->
-      <a th:href="@{/web/jugadores/borrar(lang=${param.lang} ?: 'es')}" class="card">
-        <div class="icon">🗑</div>
-        <span th:text="#{generico.boton.eliminar}">Eliminar Jugador</span>
-    </a>
-
-</main>
+        // Cerrar popup al hacer clic fuera del contenido
+        window.addEventListener('click', function (event) {
+            const popup = document.getElementById('loginPopup');
+            if (event.target === popup) {
+                popup.classList.remove('show');
+            }
+        });
+    </script>
 
 </body>
+
 </html>

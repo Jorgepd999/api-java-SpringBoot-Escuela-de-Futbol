@@ -20,4 +20,6 @@ public interface WebRoutes {
 
     // Borrar jugador
     String JUGADOR_BORRAR_ID     = "/web/jugadores/borrar/{id}";
+
+    String IDENTIFICADOR = "/web/identificador";
 }

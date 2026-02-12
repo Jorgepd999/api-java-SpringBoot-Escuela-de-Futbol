@@ -21,6 +21,7 @@ public enum ThymView {
     // --- PDF ---
     JUGADORES_PDF("pdf/jugadores-listaPDF");
 
+
     private final String path;
 
     ThymView(String path) {
