@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!form) return;
 
     // Detectar idioma desde el atributo lang del html
-    const lang = document.documentElement.lang;
+   let lang = document.documentElement.lang || 'es';
+    lang = lang.substring(0, 2); // es-ES -> es
 
     // Mensajes de error por idioma
     const messages = {
@@ -120,9 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             errorEmail.textContent = '';
         }
 
-        if (!valid) {
-            event.preventDefault(); // Evita enviar si hay errores
-        }
+       
 
         // --- Categoría solo si es el formulario de crear ---
         if (form.id === 'crearJugadorForm') {
@@ -134,6 +133,10 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 errorCategoria.textContent = '';
             }
+        }
+
+         if (!valid) {
+            event.preventDefault(); // Evita enviar si hay errores
         }
 
     });
