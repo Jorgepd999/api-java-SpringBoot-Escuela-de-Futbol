@@ -25,7 +25,7 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 
 ## Documentación completa
 
-- [Contexto de la aplicación](./doc/contexto_aplicacion/contexto.md)
+- [**Contexto de la aplicación**](./doc/contexto_aplicacion/contexto.md)
   - [Comparativa con otras apps](./doc/contexto_aplicacion/comparativa_apps/apps_existentes.md)
     - [Casos de Uso jugadores](./doc/contexto_aplicacion/comparativa_apps/casos_uso/casos_uso_jugadores.md)
     - [Casos de Uso categorias](./doc/contexto_aplicacion/comparativa_apps/casos_uso/casos_uso_categorias.md)
@@ -39,13 +39,13 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
     - [IxD](./doc/disenio/GUI/IxD/ixd_interaccion.md)
     - [Diagrama navegación](./doc/disenio/GUI/diagrama_navegacion/diagrama_navegacion.md)
     - [Reutilización](./doc/disenio/GUI/reutilizacion/reutilizacion.md)
-  - **Arquitectura**
+  - Arquitectura
     - [Despliegue](./doc/disenio/arquitectura/despliegue.md)
     - [Componentes Global](./doc/disenio/arquitectura/componenteGlobal.md)
       - [Componente Jugadores](./doc/disenio/arquitectura/componenteJugadores.md)
       - [Componente Categorias](./doc/disenio/arquitectura/componenteCategoria.md)
     - [Seguridad (Spring Security)](./doc/disenio/arquitectura/seguridad.md)
-  - **Diseño de los servicios REST**
+  - Diseño de los servicios REST
     - [Endpoints Jugadores](./doc/disenio/servicios_REST/endpoints/jugadores.md)
     - [Endpoints Categorías](./doc/disenio/servicios_REST/endpoints/categorias.md)
   - [Base de datos](./doc/disenio/base_datos/base_de_datos.md)
@@ -53,16 +53,16 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 - **Implementación**
   - [Entorno de Desarrollo](./doc/implementacion/entorno_desarrollo/entorno_desarrollo.md) 
     - [Puesta en producción](./doc/implementacion/entorno_desarrollo/puesta_produccion/puesta_en_produccion.md)
-- [Capturas de la ejecución de la funcionalidad]()
+- [**Capturas de la ejecución de la funcionalidad**]()
   - [Ejecución de las pruebas]()
-- [Información sobre la versión de las herramientas utilizadas](./doc/versiones_herramientas/versiones_herramientas.md)
-- [Elementos destacables del desarrollo ](./doc/elementos_destacables/elementos_destacables.md)
-- [Manual de usuario](./doc/manual_usuario/manual_usuario.md)
-- [Conclusiones]()
+- [**Información sobre la versión de las herramientas utilizadas**](./doc/versiones_herramientas/versiones_herramientas.md)
+- [**Elementos destacables del desarrollo**](./doc/elementos_destacables/elementos_destacables.md)
+- [**Manual de usuario**](./doc/manual_usuario/manual_usuario.md)
+- **Conclusiones**
   - [Jorge]()
   - [David]()
-- [Bibliografía](./doc/bibliografia/bibliografia.md)
-- [Anexos](./doc/anexos/anexos.md)
+- [**Bibliografía**](./doc/bibliografia/bibliografia.md)
+- [**Anexos**](./doc/anexos/anexos.md)
 ---
 
 ## Cómo ejecutar
