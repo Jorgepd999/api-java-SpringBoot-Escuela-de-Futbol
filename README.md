@@ -44,7 +44,7 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
     - [Componentes Global](./doc/arquitectura/componenteGlobal.md)
       - [Componente Jugadores](./doc/arquitectura/componenteJugadores.md)
       - [Componente Categorias](./doc/arquitectura/componenteCategoria.md)
-    - [Seguridad (Spring Security)](./doc/arquitetura/seguridad.md)
+    - [Seguridad (Spring Security)](./doc/arquitectura/seguridad.md)
   - [Diseño de los servicios REST]()
     - [Endpoints Alumnos](./doc/endpoints/jugadores.md)
     - [Endpoints Categorías](./doc/endpoints/categorias.md)
