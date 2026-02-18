@@ -8,18 +8,3 @@
 | Eliminar jugador de categoría | Administrador | Quitar un jugador de una categoría concreta.|
 | Autenticarse en el sistema | Usuario, Administrador | Permite acceder al sistema mediante credenciales. |
 
-
-
-
-
-| Caso de Uso          | Actor                     | Descripción                    |
-| -------------------- | ------------------------- | ------------------------------ |
-| Autenticarse         | Administrador, Entrenador | Acceso mediante credenciales   |
-| Crear jugador        | Administrador             | Registrar nuevo alumno         |
-| Editar jugador       | Administrador             | Modificar datos del jugador    |
-| Eliminar jugador     | Administrador             | Eliminar jugador               |
-| Consultar jugadores  | Administrador, Entrenador | Ver lista de jugadores         |
-| Crear categoría      | Administrador             | Registrar categoría            |
-| Editar categoría     | Administrador             | Modificar categoría            |
-| Eliminar categoría   | Administrador             | Eliminar si no tiene jugadores |
-| Consultar categorías | Administrador, Entrenador | Ver lista de categorías        |

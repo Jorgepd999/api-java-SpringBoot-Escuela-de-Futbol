@@ -29,7 +29,7 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
   - [Comparativa con otras apps](./doc/contexto_aplicacion/comparativa_apps/apps_existentes.md)
     - [Casos de Uso jugadores](./doc/contexto_aplicacion/comparativa_apps/casos_uso/casos_uso_jugadores.md)
     - [Casos de Uso categorias](./doc/contexto_aplicacion/comparativa_apps/casos_uso/casos_uso_categorias.md)
-    - [Requisitos funcionales y no funcionales](./doc/requisitos)
+    - Requisitos funcionales y no funcionales
       - [Funcional](./doc/contexto_aplicacion/comparativa_apps/requisitos/requisitosFuncionales.md)
       - [No funcional](./doc/contexto_aplicacion/comparativa_apps/requisitos/requisitosNoFuncionales.md)
 - **Diseño**
