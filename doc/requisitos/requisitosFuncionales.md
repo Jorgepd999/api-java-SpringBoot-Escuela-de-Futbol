@@ -1,6 +1,11 @@
 ### Requisitos Funcionales (F)
-- F1: El usuario debe iniciar sesión para acceder a la app.
-- F2: El usuario puede crear, actualizar, listar y eliminar alumnos.
-- F3: El usuario puede crear, actualizar, listar y eliminar categorias.
-- F4: El usuario puede asignar alumnos a categorías.
-
+- RF1: El sistema permitirá registrar jugadores.
+- RF2: El sistema permitirá editar jugadores.
+- RF3: El sistema permitirá eliminar jugadores.
+- RF4: El sistema permitirá consultar jugadores.
+- RF5: El sistema permitirá crear categorías.
+- RF6: El sistema permitirá modificar categorías.
+- RF7: El sistema permitirá eliminar categorías si no tienen jugadores asociados.
+- RF8: El sistema permitirá asignar jugadores a categorías según su edad.
+- RF9: El sistema permitirá autenticación mediante email y contraseña.
+- RF10: El sistema implementará control de acceso basado en roles (ADMIN y USER).

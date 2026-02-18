@@ -6,3 +6,16 @@
 |
 | `/jugadores/{id}`| PUT        | `{"nombre": "Jorge","apellido":"Alonso", "edad": 12,"piernaHabil": derecha}` | 200 OK      | `{"id": 1, nombre": "Jorge","apellido":"Alonso", "edad": 12,"piernaHabil": derecha}` | **400 Bad Request** → Debe incluir al menos un campo válido ('nombre' o 'edad').<br>**404 Not Found** → No se encontró el jugador con id {id}.<br>**500 Internal Server Error** → Ocurrió un error al actualizar el jugador. |
 | `/jugadores/{id}`| DELETE     | N/A                                | 204 No Content | N/A               | **404 Not Found** → No se encontró el jugador con id {id}.<br>**500 Internal Server Error** → Ocurrió un error al eliminar el jugador. |
+
+
+
+
+
+
+| Endpoint        | Método | Rol         | Descripción       |
+| --------------- | ------ | ----------- | ----------------- |
+| /jugadores      | GET    | USER, ADMIN | Listar jugadores  |
+| /jugadores/{id} | GET    | USER, ADMIN | Obtener jugador   |
+| /jugadores      | POST   | ADMIN       | Crear jugador     |
+| /jugadores/{id} | PUT    | ADMIN       | Modificar jugador |
+| /jugadores/{id} | DELETE | ADMIN       | Eliminar jugador  |

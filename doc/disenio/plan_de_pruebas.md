@@ -31,6 +31,17 @@ Tipos de pruebas
    - Revisar control de roles (ej. ROLE_ADMIN para operaciones destructivas)
    - Herramientas: OWASP ZAP (escaneo básico)
 
+6. Pruebas Funcionales
+   - Crear jugador correctamente.
+   -No crear jugador sin nombre.
+   -No eliminar categoría con jugadores.
+
+7 Pruebas de Seguridad
+   -Acceso sin login → 401.
+   -USER intentando eliminar jugador → 403.
+   -ADMIN eliminando jugador → 204.
+   -Login con contraseña incorrecta → error.
+
 Casos de prueba prioritarios (ejemplos)
 - Crear categoría válida → 201
 - Crear categoría con nombre duplicado → 409
@@ -38,6 +49,14 @@ Casos de prueba prioritarios (ejemplos)
 - Obtener jugador existente → 200 con body correcto
 - Borrar categoría con jugadores asociados → 409 o restricción según diseño
 - Acceso a endpoint protegido sin token → 401
+
+Pruebas de Seguridad
+
+- Acceso sin autenticación → 401
+- Usuario USER intentando eliminar categoría → 403
+- Usuario ADMIN eliminando categoría → 204
+- Login con contraseña incorrecta → Error
+
 
 Datos de prueba
 - Usar base de datos en Testcontainers con scripts de datos (src/test/resources/data.sql)
