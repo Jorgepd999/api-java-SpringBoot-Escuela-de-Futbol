@@ -1,4 +1,4 @@
-# Escuela de Fútbol - API
+  # Escuela de Fútbol - API
 
 **Versión:** 1.0  
 **Integrantes:** 
@@ -59,7 +59,7 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 - [**Elementos destacables del desarrollo**](./doc/elementos_destacables/elementos_destacables.md)
 - [**Manual de usuario**](./doc/manual_usuario/manual_usuario.md)
 - **Conclusiones**
-  - [Jorge]()
+  - [Jorge](./doc/conclusiones/conclusion_jorge.md)
   - [David]()
 - [**Bibliografía**](./doc/bibliografia/bibliografia.md)
 - [**Anexos**](./doc/anexos/anexos.md)

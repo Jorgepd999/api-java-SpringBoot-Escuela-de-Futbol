@@ -21,7 +21,6 @@ La aplicación tiene como objetivo principal **optimizar la gestión de jugadore
 De manera específica, el sistema busca:
 
 * **Automatizar** la creación, edición y eliminación de alumnos y categorías.
-* **Validar automáticamente** la pertenencia de los alumnos a categorías según su edad.
 * **Facilitar la consulta rápida** de información desde una interfaz clara y ordenada.
 * **Centralizar los datos** de la academia para mejorar la comunicación entre entrenadores y administradores.
 * **Reducir errores humanos** en la organización y clasificación de jugadores.
