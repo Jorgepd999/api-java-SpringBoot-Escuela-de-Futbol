@@ -53,8 +53,8 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 - **Implementación**
   - [Entorno de Desarrollo](./doc/implementacion/entorno_desarrollo/entorno_desarrollo.md) 
     - [Puesta en producción](./doc/implementacion/entorno_desarrollo/puesta_produccion/puesta_en_produccion.md)
-- [**Capturas de la ejecución de la funcionalidad**]()
-  - [Ejecución de las pruebas]()
+- **Capturas de la ejecución de la funcionalidad**()
+  - [Ejecución de las pruebas](./doc/capturas_ejecucion/ejecucion_pruebas.md)
 - [**Información sobre la versión de las herramientas utilizadas**](./doc/versiones_herramientas/versiones_herramientas.md)
 - [**Elementos destacables del desarrollo**](./doc/elementos_destacables/elementos_destacables.md)
 - [**Manual de usuario**](./doc/manual_usuario/manual_usuario.md)
