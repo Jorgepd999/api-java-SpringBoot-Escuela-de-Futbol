@@ -40,10 +40,10 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
     - [Diagrama navegación](./doc/disenio/GUI/diagrama_navegacion/diagrama_navegacion.md)
     - [Reutilización](./doc/disenio/GUI/reutilizacion/reutilizacion.md)
   - Arquitectura
-    - [Despliegue](./doc/disenio/arquitectura/despliegue.md)
-    - [Componentes Global](./doc/disenio/arquitectura/componenteGlobal.md)
-      - [Componente Jugadores](./doc/disenio/arquitectura/componenteJugadores.md)
-      - [Componente Categorias](./doc/disenio/arquitectura/componenteCategoria.md)
+    - [Despliegue](./doc/disenio/arquitectura/despliegue/despliegue.md)
+    - [Componentes Global](./doc/disenio/arquitectura/componentesGlobal/componenteGlobal.md)
+      - [Componente Jugadores](./doc/disenio/arquitectura/componentesGlobal/componenteJugadores/componenteJugadores.md)
+      - [Componente Categorias](./doc/disenio/arquitectura/componentesGlobal/componenteCategorias/componenteCategoria.md)
     - [Seguridad (Spring Security)](./doc/disenio/arquitectura/seguridad.md)
   - Diseño de los servicios REST
     - [Endpoints Jugadores](./doc/disenio/servicios_REST/endpoints/jugadores.md)
