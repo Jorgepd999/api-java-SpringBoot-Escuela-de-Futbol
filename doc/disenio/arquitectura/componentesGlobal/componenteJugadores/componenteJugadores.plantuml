@@ -1,5 +1,5 @@
 @startuml
-title Diagrama de Componentes
+title Diagrama de Componentes Jugadores
 
 package "Jugadores" as Jugador{
 

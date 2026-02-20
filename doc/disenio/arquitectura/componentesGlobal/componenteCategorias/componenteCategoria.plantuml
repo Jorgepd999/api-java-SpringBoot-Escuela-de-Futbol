@@ -1,18 +1,31 @@
 @startuml
-package "Common" as Common {
+title Diagrama de Componentes Categorías
 
-    package "dominio" as dw {
+package "Categorías" as Categoria {
+
+    package "aplicacion" as ac {
+        package "service" as service
+        package "useCase" as useCase
+        package "categoria" as categoria
+    }
+
+    package "dominio" as dc {
         package "error" as error
         package "model" as model
         package "repository" as repository
     }
 
-    package "infraestructura" as iw{
-       package "web" as web
+    package "infraestructura" as ic {
+        package "config" as config
+        package "db" as db
+        package "mapper" as mapper
+        package "web" as web
     }
 
-    web ..> repository
+    useCase ..> repository
     repository --> model
-     
+    repository --> error
+
 }
+
 @enduml
