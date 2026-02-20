@@ -1,6 +1,6 @@
 # Análisis DAFO — Footflow
 
-Autores: David Aguilar Guerra, Jorge Pérez Durán  
+Autor: David Aguilar Guerra
 Fecha: 2026-02-20
 
 ## Fortalezas
