@@ -60,7 +60,7 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 - [**Manual de usuario**](./doc/manual_usuario/manual_usuario.md)
 - **Conclusiones**
   - [Jorge](./doc/conclusiones/conclusion_jorge.md)
-  - [David]()
+  - [David](./doc/conclusiones/conclusiones_david.md)
 - [**Bibliografía**](./doc/bibliografia/bibliografia.md)
 - [**Anexos**](./doc/anexos/anexos.md)
 ---
