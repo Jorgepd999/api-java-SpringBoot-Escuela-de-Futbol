@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  mi-api-rest-academia:
+    image: jorgeperez099/academia:v1
+    container_name: academia-container
+    ports:
+      - "8080:8080"
+    restart: always 
