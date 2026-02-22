@@ -65,8 +65,5 @@ API para gestionar alumnos y categorías en una escuela de fútbol, con:
 - [**Anexos**](./doc/anexos/anexos.md)
 ---
 
-## Cómo ejecutar
-
-
 
 

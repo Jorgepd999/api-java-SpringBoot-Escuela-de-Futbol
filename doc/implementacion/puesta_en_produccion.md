@@ -1,59 +1,221 @@
 # Puesta en Producción
 
-Objetivos
-- Desplegar la API de forma reproducible, segura y monitorizada.
+## Objetivos
 
-Estrategia de despliegue (opciones)
-1. Docker + Docker Compose (pequeñas infraestructuras)
-   - Contenedor de la aplicación
-   - Contenedor de PostgreSQL (o servicio gestionado)
-   - Ejemplo docker-compose.yml mínimo:
-```yaml
-version: '3.8'
-services:
-  app:
-    image: jornada/escuela-api:latest
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_PROFILES_ACTIVE: prod
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/escuela_db
-      SPRING_DATASOURCE_USERNAME: pguser
-      SPRING_DATASOURCE_PASSWORD: pgpass
-    depends_on:
-      - db
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_DB: escuela_db
-      POSTGRES_USER: pguser
-      POSTGRES_PASSWORD: pgpass
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-volumes:
-  pgdata:
+- Desplegar la aplicación de forma reproducible.
+- Permitir ejecución aislada mediante contenedores.
+- Facilitar el despliegue en cualquier entorno (local, servidor o cloud).
+- Proporcionar documentación interactiva de la API.
+- Permitir futuras mejoras en monitorización y escalabilidad.
+
+Repositorio del proyecto:
+
+https://github.com/Jorgepd999/api-java-SpringBoot-Escuela-de-Futbol.git
+
+---
+
+# Opciones de Ejecución
+
+La aplicación puede ejecutarse de dos formas:
+
+1. Mediante Docker (recomendado para despliegue).
+2. De forma local sin contenedor, descargando el código desde GitHub.
+
+---
+
+# 1. Despliegue con Docker Compose
+
+Se utiliza la imagen publicada en Docker Hub:
+
+```
+jorgeperez099/academia:v1
 ```
 
-2. Kubernetes (recomendado para producción escalable)
-   - Deployments + Services + ConfigMaps + Secrets
-   - Ingress + TLS para exponer la API
-   - Habilitar readiness/liveness probes
+## docker-compose.yml utilizado
 
-CI/CD
-- Pipeline sugerido (GitHub Actions / GitLab CI):
-  - build → test → build image → push image al registry → desplegar en staging → pruebas E2E → promover a prod
-- Repositorio de imágenes: Docker Hub, GitHub Packages o registry privado
+```yaml
+services:
+  mi-api-rest-academia:
+    image: jorgeperez099/academia:v1
+    container_name: academia-container
+    ports:
+      - "8080:8080"
+    restart: always
+```
 
-Seguridad y operaciones
-- Secrets: almacenar credenciales en Secret Manager (K8s Secrets, Vault, etc.)
-- HTTPS obligatorio: configurar TLS en Ingress o load balancer
-- Backups: programar dumps periódicos de la BD y testear restauraciones
-- Monitorización: Prometheus + Grafana, logs centralizados (ELK / Loki)
-- Alertas: configurar alertas de errores altos o caídas de instancias
+## Pasos de despliegue
 
-Rollback
-- Mantener versiones de despliegue y usar despliegues con política de rollback (K8s roll back por replicaset)
+Clonar el repositorio:
 
-Consideraciones de escalabilidad
-- Separar base de datos gestionada (RDS, Cloud SQL) para tolerancia y backups
-- Habilitar cache (Redis) si lecturas frecuentes de listados
+```bash
+git clone https://github.com/Jorgepd999/api-java-SpringBoot-Escuela-de-Futbol.git
+cd api-java-SpringBoot-Escuela-de-Futbol
+```
+
+Ejecutar Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+Verificar contenedor:
+
+```bash
+docker ps
+```
+
+---
+
+## Acceso a la Aplicación (Docker)
+
+Base URL:
+
+```
+http://localhost:8080
+```
+
+### API REST
+
+Los endpoints REST pueden probarse con:
+
+- Postman
+- Navegador (para métodos GET)
+
+### Interfaz Web con Thymeleaf
+
+La aplicación incluye vistas renderizadas con Thymeleaf.
+
+Acceso al menú principal:
+
+```
+http://localhost:8080/web/menu
+```
+
+### Documentación Swagger (OpenAPI)
+
+La API dispone de documentación interactiva mediante Swagger UI.
+
+Acceso:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+o
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+Desde esta interfaz se pueden:
+
+- Consultar todos los endpoints disponibles.
+- Ver los modelos de datos.
+- Probar peticiones directamente desde el navegador.
+
+---
+
+## Características del despliegue con Docker
+
+- Imagen versionada.
+- Puerto 8080 expuesto.
+- Reinicio automático del contenedor (`restart: always`).
+- Entorno reproducible en cualquier máquina con Docker instalado.
+
+---
+
+# 2. Ejecución Local sin Docker
+
+También es posible ejecutar la aplicación directamente desde el código fuente.
+
+## Requisitos
+
+- Java 17 (o versión compatible con el proyecto).
+- Maven instalado.
+
+## Pasos
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/Jorgepd999/api-java-SpringBoot-Escuela-de-Futbol.git
+cd api-java-SpringBoot-Escuela-de-Futbol
+```
+
+Compilar el proyecto:
+
+```bash
+mvn clean install
+```
+
+Ejecutar la aplicación:
+
+```bash
+mvn spring-boot:run
+```
+
+O ejecutar el JAR generado:
+
+```bash
+java -jar target/*.jar
+```
+
+---
+
+## Acceso a la Aplicación (Ejecución Local)
+
+Base URL:
+
+```
+http://localhost:8080/jugadores
+```
+
+Interfaz web:
+
+```
+http://localhost:8080/web/menu
+```
+
+Swagger UI:
+
+```
+http://localhost:8080/swagger-ui.html
+```
+
+o
+
+```
+http://localhost:8080/swagger-ui/index.html
+```
+
+---
+
+# Tecnologías Utilizadas
+
+- Spring Boot
+- Spring MVC
+- Spring Data JPA
+- Thymeleaf
+- OpenAPI / Swagger
+- Maven
+- Docker
+
+La aplicación funciona tanto como:
+
+- API REST documentada mediante OpenAPI.
+- Aplicación web tradicional con renderizado del lado del servidor.
+
+---
+
+# Consideraciones de Escalabilidad
+
+- Despliegue en Kubernetes para alta disponibilidad.
+- Uso de balanceador de carga en caso de múltiples instancias.
+- Separación futura de servicios si la aplicación crece.
+- Posible incorporación de sistema de caché (Redis).
+
+---
+
+# Conclusión
+
+La aplicación está preparada para ejecutarse tanto en entorno local como en entorno contenedorizado, permitiendo portabilidad, reproducibilidad y facilidad de despliegue en diferentes infraestructuras. Además, incorpora documentación interactiva mediante OpenAPI (Swagger), facilitando el consumo y prueba de la API.
